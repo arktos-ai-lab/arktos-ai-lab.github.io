@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Open but Unvetted · Arktos AI Lab</title>
+<meta name="description" content="Open but Unvetted: the ethics of African language data. A license-provenance audit of more than twenty corpus families used in African NLP, published at RAIL 2026 (LREC 2026)." />
+<link rel="canonical" href="https://arktosailab.com/research.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Arktos AI Lab" />
+<meta property="og:title" content="Open but Unvetted · Arktos AI Lab" />
+<meta property="og:description" content="Open but Unvetted: the ethics of African language data. A license-provenance audit of more than twenty corpus families used in African NLP, published at RAIL 2026 (LREC 2026)." />
+<meta property="og:url" content="https://arktosailab.com/research.html" />
+<meta property="og:image" content="https://arktosailab.com/assets/arktos-bear.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="assets/arktos-bear.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#F6F9FB;
+    --snow:#EEF4F8;
+    --ice:#DCE7EF;
+    --frost:#B8CCDA;
+    --ink:#0A1620;
+    --muted:#4E6473;
+    --hair:rgba(10,22,32,0.16);
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --serif:'Spectral', 'Times New Roman', serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--white);color:var(--ink);font-family:var(--serif);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-size:17px;line-height:1.6}
+  a{color:inherit}
+  ::selection{background:var(--ink);color:var(--white)}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+  @media (max-width:720px){.wrap{padding:0 22px}}
+
+  .meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--muted);padding:14px 0;border-bottom:1px solid var(--hair);
+  }
+  .meta .dot{width:6px;height:6px;border-radius:50%;background:#3b8a57;display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(59,138,87,0.15)}
+  nav.primary{display:flex;justify-content:space-between;align-items:center;padding:22px 0 26px;border-bottom:1px solid var(--ink)}
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+  .brand img{width:34px;height:34px}
+  .brand .name{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-0.01em}
+  .brand .name em{font-style:italic;font-weight:400;color:var(--muted)}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;font-family:var(--mono);font-size:12px;letter-spacing:0.04em;text-transform:uppercase;align-items:center}
+  .lang{display:inline-flex;gap:0;border:1px solid var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:0.1em}
+  .lang button{background:var(--white);border:none;color:var(--ink);padding:5px 9px;cursor:pointer;font:inherit;letter-spacing:inherit}
+  .lang button.on{background:var(--ink);color:var(--white)}
+  nav ul a{text-decoration:none;color:var(--ink);opacity:0.75;transition:opacity .2s}
+  nav ul a:hover{opacity:1}
+  nav ul a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:4px}
+
+  .masthead{padding:56px 0 64px;border-bottom:1px solid var(--ink);position:relative}
+  .crumbs{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:36px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .crumbs a{text-decoration:none;border-bottom:1px solid var(--hair)}
+  .crumbs .sep{opacity:0.5}
+  .mast-grid{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
+  @media (max-width:900px){.mast-grid{grid-template-columns:1fr;gap:18px}}
+  .section-num{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  h1.art{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.6vw,76px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 28px}
+  h1.art em{font-style:italic;color:#7a8893;font-weight:300}
+  .kicker{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:#1a1d21;max-width:62ch;margin:0 0 32px}
+
+  .mast-bar{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;border-top:1px solid var(--hair);padding-top:22px}
+  @media (max-width:720px){.mast-bar{grid-template-columns:1fr 1fr;gap:18px}}
+  .mast-bar .k{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .mast-bar .v{font-family:var(--serif);font-size:15px;line-height:1.35}
+
+  /* tier panel */
+  .tiers{margin-top:48px;border:1px solid var(--ink);background:var(--snow)}
+  .tiers-head{padding:16px 22px;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);display:flex;justify-content:space-between}
+  .tiers-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+  @media (max-width:900px){.tiers-grid{grid-template-columns:repeat(2,1fr)}}
+  .tier{padding:22px 20px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .tier:last-child{border-right:none}
+  .tier .n{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between}
+  .tier h5{font-family:var(--serif);font-weight:500;font-size:18px;letter-spacing:-0.01em;margin:0 0 6px}
+  .tier p{font-size:13px;line-height:1.45;color:#1a1d21;margin:0}
+  .tier.risk-none .n .r{color:#2a7f4e}
+  .tier.risk-low .n .r{color:#2a7f4e}
+  .tier.risk-med .n .r{color:#8a6d1f}
+  .tier.risk-high .n .r{color:#a3422a}
+  .tier.risk-pro{background:var(--ink);color:var(--white)}
+  .tier.risk-pro h5,.tier.risk-pro p{color:var(--white)}
+  .tier.risk-pro .n{color:rgba(255,255,255,0.7)}
+  .tier.risk-pro .n .r{color:var(--white)}
+
+  /* article body */
+  article{padding:64px 0 40px}
+  .body-grid{display:grid;grid-template-columns:200px 1fr 220px;gap:40px}
+  @media (max-width:1000px){.body-grid{grid-template-columns:1fr}}
+  .body-grid aside.notes{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);position:sticky;top:20px;align-self:start;border-left:1px solid var(--hair);padding-left:16px;line-height:1.7}
+  .body-grid aside.notes a{text-decoration:none;display:block;padding:4px 0;opacity:0.7}
+  .body-grid aside.notes a:hover,.body-grid aside.notes a.active{opacity:1;color:var(--ink)}
+  .body-grid aside.notes .label{font-size:10px;letter-spacing:0.14em;color:#8A8F95;margin-bottom:10px;font-weight:500}
+  .body-grid aside.margin{font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.55;color:var(--muted);border-top:1px solid var(--hair);padding-top:12px}
+
+  .prose h2{font-family:var(--serif);font-weight:400;font-size:34px;letter-spacing:-0.015em;line-height:1.15;margin:56px 0 18px;scroll-margin-top:30px}
+  .prose h2 em{font-style:italic;color:#7a8893}
+  .prose h2 .sec{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;font-weight:500}
+  .prose p{font-size:18px;line-height:1.65;margin:0 0 18px;color:#111315;max-width:64ch}
+  .prose p:first-of-type::first-letter{
+    font-family:var(--serif);font-weight:400;font-size:74px;line-height:0.85;float:left;padding:8px 10px 0 0;color:var(--ink)
+  }
+  .prose .drop-reset::first-letter{all:unset}
+  .prose blockquote{
+    border-left:2px solid var(--ink);margin:28px 0;padding:6px 0 6px 24px;
+    font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.45;max-width:56ch;color:var(--ink)
+  }
+  .prose ul{padding-left:20px;margin:0 0 18px;max-width:62ch}
+  .prose ul li{margin-bottom:10px;font-size:17px;line-height:1.6}
+  .prose hr{border:none;border-top:1px solid var(--hair);margin:40px 0}
+
+  .callout{
+    background:var(--ice);border:1px solid var(--hair);padding:22px 24px;margin:28px 0;
+    display:grid;grid-template-columns:140px 1fr;gap:20px;max-width:820px
+  }
+  @media (max-width:720px){.callout{grid-template-columns:1fr}}
+  .callout .t{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+  .callout p{font-size:15px;line-height:1.55;margin:0}
+
+  /* Case-study cards */
+  .cases{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin:28px 0;max-width:820px}
+  @media (max-width:720px){.cases{grid-template-columns:1fr}}
+  .case{padding:24px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .case .n{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .case h4{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-0.01em;margin:0 0 8px}
+  .case p{font-size:14px;line-height:1.5;margin:0;color:#1a1d21}
+
+  /* compatibility matrix */
+  .matrix{margin:28px 0;max-width:820px;border:1px solid var(--ink);background:var(--snow)}
+  .matrix-head{padding:14px 18px;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+  table.mx{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}
+  table.mx th,table.mx td{padding:10px 12px;text-align:center;border-bottom:1px solid var(--hair);border-right:1px solid var(--hair);letter-spacing:0.04em}
+  table.mx th{background:var(--ice);font-weight:500;text-transform:uppercase;font-size:10px;color:var(--muted);letter-spacing:0.12em}
+  table.mx th:first-child,table.mx td:first-child{text-align:left;font-weight:500;background:var(--ice);color:var(--ink);text-transform:uppercase;font-size:10px;letter-spacing:0.12em}
+  table.mx td.x{color:#a3422a}
+  table.mx td.ok{color:var(--ink)}
+  table.mx td.na{color:var(--muted)}
+
+  /* bottom cta */
+  .cta{padding:72px 0 90px;background:var(--ink);color:var(--white);margin-top:0}
+  .cta .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+  @media (max-width:900px){.cta .wrap{grid-template-columns:1fr;gap:28px}}
+  .cta h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,3.6vw,52px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 16px;color:var(--white)}
+  .cta h2 em{font-style:italic;color:#DDE5EB}
+  .cta p{font-family:var(--serif);font-size:17px;line-height:1.55;color:#A8ADB3;max-width:52ch;margin:0}
+  .cta-actions{display:flex;flex-direction:column;gap:14px}
+  .btn{
+    display:inline-flex;justify-content:space-between;align-items:center;gap:24px;
+    padding:18px 22px;background:transparent;border:1px solid var(--white);color:var(--white);
+    text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+    transition:background .25s ease, color .25s ease
+  }
+  .btn:hover{background:var(--white);color:var(--ink)}
+  .btn.primary{background:var(--white);color:var(--ink)}
+  .btn.primary:hover{background:var(--frost);border-color:var(--frost)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="meta">
+    <div><span class="dot"></span>Arktos AI Lab · The Netherlands · Established 2025</div>
+    <div>Independent Research</div>
+  </div>
+
+  <nav class="primary">
+    <a class="brand" href="./index.html">
+      <img src="assets/arktos-bear.png" alt="Arktos AI Lab" />
+      <div class="name">Arktos <em>AI Lab</em></div>
+    </a>
+    <ul>
+      <li><a href="index.html#research" class="active">Research</a></li>
+      <li><a href="index.html#papers">Publications</a></li>
+      <li><a href="corpora.html">Corpora</a></li>
+      <li><a href="talitha.html">Talitha</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="masthead">
+    <div class="crumbs">
+      <a href="index.html">Research</a>
+      <span class="sep">/</span>
+      <span>01 · NLP &amp; Data Ethics</span>
+      <span class="sep">/</span>
+      <span style="color:var(--ink)">Open but Unvetted</span>
+    </div>
+
+    <div class="mast-grid">
+      <div>
+        <div class="section-num">§ 01 · Paper</div>
+      </div>
+      <div>
+        <h1 class="art">Open but <em>unvetted:</em> the ethics of African language data.</h1>
+        <p class="kicker">
+          Creative Commons licenses are prevalent in African NLP corpus releases, but their compatibility implications are rarely examined systematically. This paper audits the license provenance of 20+ corpus families and documents four structurally distinct ways compliance fails in practice.
+        </p>
+
+        <div class="mast-bar">
+          <div><div class="k">Author</div><div class="v">Ernst van Gassen, Independent researcher at Arktos AI Lab</div></div>
+          <div><div class="k">Venue</div><div class="v">Proceedings of RAIL 2026 at LREC 2026</div></div>
+          <div><div class="k">Status</div><div class="v">Published, 12 May 2026</div></div>
+          <div><div class="k">Pages</div><div class="v">128-139</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier taxonomy -->
+    <div class="tiers">
+      <div class="tiers-head">
+        <span>Figure 01 · License tier taxonomy (T1 to T5)</span>
+        <span>From the paper</span>
+      </div>
+      <div class="tiers-grid">
+        <div class="tier risk-none">
+          <div class="n"><span>T1</span><span class="r">None</span></div>
+          <h5>Public domain</h5>
+          <p>CC0, public domain, government text where applicable. No restrictions.</p>
+        </div>
+        <div class="tier risk-low">
+          <div class="n"><span>T2</span><span class="r">Low</span></div>
+          <h5>Permissive</h5>
+          <p>CC-BY, MIT, Apache 2.0. Attribution required; no share-alike, NC, or ND.</p>
+        </div>
+        <div class="tier risk-med">
+          <div class="n"><span>T3</span><span class="r">Medium</span></div>
+          <h5>Share-alike</h5>
+          <p>CC-BY-SA. Propagates to all published derivatives.</p>
+        </div>
+        <div class="tier risk-high">
+          <div class="n"><span>T4a</span><span class="r">High</span></div>
+          <h5>Non-commercial</h5>
+          <p>CC-BY-NC. Incompatible with T3.</p>
+        </div>
+        <div class="tier risk-high">
+          <div class="n"><span>T4b</span><span class="r">High</span></div>
+          <h5>NoDerivs</h5>
+          <p>CC-BY-ND or undisclosed ND. Derivatives cannot be redistributed.</p>
+        </div>
+        <div class="tier risk-pro">
+          <div class="n"><span>T5</span><span class="r">Prohibited</span></div>
+          <h5>ToS violation</h5>
+          <p>Permission denied, or collection built against source terms.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <article>
+    <div class="body-grid">
+
+      <aside class="notes">
+        <div class="label">In this paper</div>
+        <a href="#overview" class="active">§ 01 · Overview</a>
+        <a href="#problem">§ 02 · The gap</a>
+        <a href="#matrix">§ 03 · Compatibility</a>
+        <a href="#failures">§ 04 · Four failure modes</a>
+        <a href="#checklist">§ 05 · Due diligence</a>
+        <a href="#ethics">§ 06 · Ethics statement</a>
+      </aside>
+
+      <div class="prose">
+        <h2 id="overview"><span class="sec">§ 01</span>Overview.</h2>
+        <p>NLP researchers are typically not trained in law. For high-resource languages this is rarely a practical problem. Widely used corpora have been informally vetted by decades of use. For low-resource African languages, those conditions do not hold. The consequences are beginning to surface.</p>
+
+        <p class="drop-reset">This paper presents an empirical audit of license provenance across more than twenty corpus families used in African NLP. It applies established license-compatibility rules to three case-study languages: <em>Kituba/Munukutuba</em>, <em>Zarma</em>, and <em>Moore</em>. It documents four structurally distinct failure modes, each supported by primary-source evidence.</p>
+
+        <div class="callout">
+          <div class="t">Normative claim</div>
+          <p>Lawful data use is an ethical baseline, not a separate concern. For African language communities with limited institutional recourse, license violations are not only legal risks. They are ethical failures that compound existing power asymmetries.</p>
+        </div>
+
+        <h2 id="problem"><span class="sec">§ 02</span>A <em>discipline-specific</em> gap.</h2>
+        <p>License compatibility logic and machine-readable rights expression have been standard tools in the library and open-source communities since the early 2000s. SPDX identifiers, the OSI approval process, ODRL (a W3C standard since 2001), and Creative Commons' ccREL all predate modern NLP's engagement with these issues. By two decades.</p>
+
+        <p>Their limited adoption in African NLP practice is therefore not due to novelty. The tools and concepts are established. The gap is discipline-specific, and documenting it is the empirical contribution of this paper.</p>
+
+        <blockquote>
+          A corpus that violates its source's license is not only a legal risk but an ethical failure toward the communities whose language it encodes.
+        </blockquote>
+
+        <h2 id="matrix"><span class="sec">§ 03</span>The <em>compatibility matrix.</em></h2>
+        <p>The paper defines six license tiers (shown above) and a pairwise compatibility matrix describing which output license is valid when two sources are combined. Three results are practically important:</p>
+
+        <ul>
+          <li><b>T3 × T4a is incompatible.</b> Wikipedia (CC-BY-SA) and the 27Group Feriji Zarma corpus (CC-BY-NC) cannot be combined in a single published dataset under any valid license.</li>
+          <li><b>T4b × anything is blocked.</b> Any corpus with a NoDerivs clause cannot be used to create a published annotation dataset, regardless of the output license chosen.</li>
+          <li><b>T3 and T4a propagate.</b> Practitioners using Wikipedia as an annotation seed must release under CC-BY-SA 4.0. These are design decisions that must be made before annotation begins.</li>
+        </ul>
+
+        <div class="matrix">
+          <div class="matrix-head">
+            <span>Table · License compatibility matrix</span>
+            <span>× = incompatible</span>
+          </div>
+          <table class="mx">
+            <thead>
+              <tr><th></th><th>T1</th><th>T2</th><th>T3</th><th>T4a</th><th>T4b</th><th>T5</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>T1</td><td class="ok">T1+</td><td class="ok">T2</td><td class="ok">T3</td><td class="ok">T4a</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><td>T2</td><td class="ok">T2</td><td class="ok">T2</td><td class="ok">T3</td><td class="ok">T4a</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><td>T3</td><td class="ok">T3</td><td class="ok">T3</td><td class="ok">T3</td><td class="x">×</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><td>T4a</td><td class="ok">T4a</td><td class="ok">T4a</td><td class="x">×</td><td class="ok">T4a</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><td>T4b</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><td>T5</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="failures"><span class="sec">§ 04</span>Four failure modes.</h2>
+        <p>The four cases below are not a random sample of poor practice. They represent four structurally distinct ways compliance can fail, each with different causes and implications. In each case, an implicit legal assumption was made that would not have survived explicit examination.</p>
+
+        <div class="cases">
+          <div class="case">
+            <div class="n">A · Prohibition</div>
+            <h4>JW300</h4>
+            <p>Parallel corpus built in breach of the source's Terms of Service. A CIPIT Nairobi audit confirmed the violation; OPUS removed the corpus. Downstream models may still carry contaminated provenance.</p>
+          </div>
+          <div class="case">
+            <div class="n">B · Label misrepresentation</div>
+            <h4>WAXAL</h4>
+            <p>A 2026 speech dataset published with a uniform CC-BY 4.0 claim that contradicts per-provider terms. Lingala, Hausa, Igbo, Yoruba, and Makerere-sourced languages require CC-BY-SA output.</p>
+          </div>
+          <div class="case">
+            <div class="n">C · Hidden restriction</div>
+            <h4>Tanzil</h4>
+            <p>Quran translation corpus labelled CC-BY 3.0. The license page explicitly states the text may not be modified, a NoDerivs clause not reflected in the CC label visible to aggregators.</p>
+          </div>
+          <div class="case">
+            <div class="n">D · Infrastructure failure</div>
+            <h4>Congolese Radio Corpus</h4>
+            <p>405 YouTube IDs referenced; an audit in Feb 2026 found 402 no longer accessible. The reproducible portion is about 14.4 hours, versus the hundreds originally claimed.</p>
+          </div>
+        </div>
+
+        <h2 id="checklist"><span class="sec">§ 05</span>A <em>due-diligence</em> procedure.</h2>
+        <p>The paper proposes a minimal four-step workflow for license-compliant dataset construction. First, inventory sources against known-safe and known-prohibited lists. Second, assign tiers by verifying against primary license pages, not dataset cards. Third, apply the compatibility matrix. Fourth, verify ISO codes, archive snapshots to persistent repositories, and include a provenance declaration in the paper's ethics statement.</p>
+
+        <p>The matrix requires no legal expertise: it is a lookup table. Tier assignments require a one-time provenance check per source. The checklist is a matter of discipline.</p>
+
+        <h2 id="ethics"><span class="sec">§ 06</span>Proposed ethics-statement language.</h2>
+        <p>The NLP community has established ethics statements for human subjects and consent. But not yet for data provenance. For low-resource African languages, where a single corpus loss is unrecoverable, documentation is an ethical necessity. The paper proposes a short, standard declaration, analogous to an IRB approval statement:</p>
+
+        <blockquote>
+          All corpus sources were reviewed for provenance. No ToS-violating or prohibited sources are included. Tier assignments are documented in the supplementary material.
+        </blockquote>
+
+        <hr/>
+        <p style="font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase">Correspondence via LinkedIn · Proceedings of RAIL 2026 at LREC 2026, pp. 128-139</p>
+      </div>
+
+      <aside class="margin">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:#8A8F95;margin-bottom:10px">Margin notes</div>
+        <p style="margin:0 0 14px">Kituba (<b>ktu</b>/<b>mkw</b>) is the vehicular language of southern Congo-Brazzaville, 5 to 8M speakers, absent from FLORES-200.</p>
+        <p style="margin:0 0 14px">Zarma (<b>dje</b>) is spoken by about 5M in Niger; OCHA lists it as a priority communication language.</p>
+        <p style="margin:0 0 14px">Moore (<b>mos</b>) has FLORES-200 coverage and active Burkinabè research groups, the upper bound for a relatively well-studied low-resource language.</p>
+        <p style="margin:0">A notable finding: the Kongo Wikipedia (<b>kgwiki</b>) is in fact written in Kituba; 1,200+ articles potentially overlooked by researchers searching under standard ISO codes.</p>
+      </aside>
+
+    </div>
+  </article>
+
+</div>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Co-authorship, peer review, or <em>funding</em> conversations.</h2>
+      <p>Arktos AI Lab is run by one researcher, and co-authorship is welcome. If you work on data provenance, low-resource NLP, or the law and economics of AI, and you're looking for a collaborator on a paper, get in touch. The same goes for reviewers and funders.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn" href="index.html#contact">
+        <span>Back to contact</span>
+        <span>→</span>
+      </a>
+      <a class="btn primary" href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">
+        <span>Connect on LinkedIn</span>
+        <span>↗</span>
+      </a>
+      <a class="btn" href="index.html">
+        <span>Back to Arktos AI Lab</span>
+        <span>←</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const links = document.querySelectorAll('aside.notes a');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`aside.notes a[href="#${e.target.id}"]`);
+        if(link) link.classList.add('active');
+      }
+    });
+  }, {rootMargin: '-20% 0px -70% 0px'});
+  sections.forEach(s => s && obs.observe(s));
+</script>
+<script src="assets/i18n.js"></script>
+
+</body>
+</html>

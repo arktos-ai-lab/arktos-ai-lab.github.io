@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arktos AI Lab · Independent research on data provenance, ethics, and economics</title>
+<meta name="description" content="Arktos AI Lab is an independent research lab in the Netherlands working on data provenance, low-resource NLP, and the law and economics of AI. Publications, data and code." />
+<link rel="canonical" href="https://arktosailab.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Arktos AI Lab" />
+<meta property="og:title" content="Arktos AI Lab · Independent research on data provenance, ethics, and economics" />
+<meta property="og:description" content="Arktos AI Lab is an independent research lab in the Netherlands working on data provenance, low-resource NLP, and the law and economics of AI. Publications, data and code." />
+<meta property="og:url" content="https://arktosailab.com/" />
+<meta property="og:image" content="https://arktosailab.com/assets/arktos-bear.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="assets/arktos-bear.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#F6F9FB;
+    --snow:#EEF4F8;
+    --ice:#DCE7EF;
+    --frost:#B8CCDA;
+    --ink:#0A1620;
+    --soft:#111315;
+    --muted:#4E6473;
+    --hair:rgba(10,22,32,0.16);
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --serif:'Spectral', 'Times New Roman', serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--white);color:var(--ink);font-family:var(--serif);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-size:17px;line-height:1.55}
+  a{color:inherit}
+  ::selection{background:var(--ink);color:var(--white)}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+  @media (max-width:720px){.wrap{padding:0 22px}}
+
+  /* meta strip */
+  .meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--muted);padding:14px 0;border-bottom:1px solid var(--hair);
+  }
+  .meta .dot{width:6px;height:6px;border-radius:50%;background:#3b8a57;display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(59,138,87,0.15)}
+
+  /* nav */
+  nav.primary{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 0 26px;border-bottom:1px solid var(--ink);
+  }
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+  .brand img{width:34px;height:34px;display:block}
+  .brand .name{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-0.01em}
+  .brand .name em{font-style:italic;font-weight:400;color:var(--muted)}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;font-family:var(--mono);font-size:12px;letter-spacing:0.04em;text-transform:uppercase;align-items:center}
+  .lang{display:inline-flex;gap:0;border:1px solid var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:0.1em}
+  .lang button{background:var(--white);border:none;color:var(--ink);padding:5px 9px;cursor:pointer;font:inherit;letter-spacing:inherit}
+  .lang button.on{background:var(--ink);color:var(--white)}
+  nav ul a{text-decoration:none;color:var(--ink);opacity:0.75;transition:opacity .2s}
+  nav ul a:hover{opacity:1}
+  nav ul a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:4px}
+
+  /* hero */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    border-bottom:1px solid var(--ink);
+    overflow:hidden;background:var(--white);
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;position:relative;z-index:2}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero{padding:70px 0 60px}}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+  .eyebrow .sep{margin:0 10px;opacity:0.4}
+  h1.display{
+    font-family:var(--serif);font-weight:300;font-size:clamp(42px,6.2vw,88px);line-height:1.02;
+    letter-spacing:-0.025em;margin:0;color:var(--ink);
+  }
+  h1.display em{font-style:italic;font-weight:400;color:#7a8893}
+  .hero .lede{
+    font-family:var(--serif);font-size:19px;line-height:1.55;color:#1a1d21;max-width:440px;margin:0 0 28px
+  }
+  .hero .callouts{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);display:flex;gap:22px;flex-wrap:wrap}
+  .hero .callouts span{display:inline-flex;align-items:center;gap:8px}
+  .hero .callouts i{width:4px;height:4px;background:var(--ink);display:inline-block;font-style:normal;border-radius:50%}
+
+
+  section{border-bottom:1px solid var(--ink)}
+  .section-head{
+    display:grid;grid-template-columns:200px 1fr;gap:40px;padding:56px 0 0;margin-bottom:40px;align-items:baseline
+  }
+  @media (max-width:900px){.section-head{grid-template-columns:1fr;gap:10px}}
+  .section-head .num{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .section-head h2{
+    font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,46px);letter-spacing:-0.02em;margin:0;line-height:1.1
+  }
+  .section-head h2 em{font-style:italic;color:#7a8893;font-weight:300}
+
+  /* about / mission */
+  .about{padding-bottom:72px}
+  .about .body{display:grid;grid-template-columns:200px 1fr 1fr;gap:40px}
+  @media (max-width:900px){.about .body{grid-template-columns:1fr}}
+  .about p{font-size:19px;line-height:1.65;margin:0 0 16px;color:#111315}
+  .about p.lead{font-size:22px;line-height:1.5;font-weight:400}
+  .about .pullquote{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:22px;line-height:1.4;letter-spacing:-0.005em;color:var(--ink);
+    border-left:1px solid var(--ink);padding-left:24px
+  }
+  .about .pullquote cite{display:block;margin-top:14px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* research areas */
+  .research{padding-bottom:0}
+  .research-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+  @media (max-width:900px){.research-grid{grid-template-columns:1fr}}
+  .research-item{
+    padding:40px 32px 44px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    position:relative;cursor:pointer;transition:background .35s ease;
+    display:flex;flex-direction:column;gap:18px;min-height:300px;
+    background:var(--white);text-decoration:none;color:var(--ink);
+  }
+  .research-item:nth-child(2n){border-right:none}
+  @media (max-width:900px){.research-item{border-right:none}}
+  .research-item:hover{background:var(--ice)}
+  .research-item .tag{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+  .research-item h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.15;letter-spacing:-0.015em;margin:0;color:var(--ink)}
+  .research-item h3 em{font-style:italic;color:#7a8893}
+  .research-item p{font-size:16px;line-height:1.55;color:#1a1d21;margin:0;max-width:48ch}
+  .research-item .more{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-top:auto;display:flex;align-items:center;gap:10px;color:var(--ink)}
+  .research-item .more .arr{transition:transform .25s ease;display:inline-block}
+  .research-item:hover .more .arr{transform:translateX(6px)}
+  .motif{height:56px;width:100%;opacity:0.9}
+
+  /* publications */
+  .papers{padding-bottom:72px}
+  .paper-list{border-top:1px solid var(--ink)}
+  .paper{
+    display:grid;grid-template-columns:120px 1fr 200px 140px;gap:32px;align-items:baseline;
+    padding:26px 0;border-bottom:1px solid var(--hair);
+    text-decoration:none;color:var(--ink);cursor:pointer;
+    position:relative;transition:background .3s ease, padding .3s ease;
+  }
+  .paper, .paper *{text-decoration:none}
+  @media (max-width:900px){.paper{grid-template-columns:80px 1fr;gap:16px}.paper .authors,.paper .venue{display:none}}
+  .paper::before{
+    content:"";position:absolute;left:-20px;right:-20px;top:0;bottom:0;background:var(--ice);
+    opacity:0;transition:opacity .3s ease;z-index:-1;
+  }
+  .paper:hover::before{opacity:1}
+  .paper:hover{padding-left:12px;padding-right:12px}
+  .paper .date{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+  .paper .title{font-family:var(--serif);font-size:21px;line-height:1.3;font-weight:400;letter-spacing:-0.01em;margin:0 0 6px}
+  .paper .title em{font-style:italic;color:#7a8893}
+  .paper .sub{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--muted);line-height:1.4;margin:0}
+  .paper .authors{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--muted);line-height:1.4}
+  .paper .venue{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);text-align:right}
+  .paper .venue .pill{border:1px solid var(--ink);padding:4px 8px;border-radius:2px;display:inline-block}
+  .paper .venue .pill.soft{border-color:var(--hair);color:var(--muted)}
+
+  .list-note{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:28px 0 0}
+  .list-note a{text-decoration:none;border-bottom:1px solid var(--hair)}
+  .sublabel{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin:56px 0 14px}
+  div.paper{cursor:default}
+
+  /* about the founder */
+  .founder{padding:64px 0 80px}
+  .founder-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;border-top:1px solid var(--ink);padding-top:48px;align-items:start}
+  @media (max-width:900px){.founder-grid{grid-template-columns:1fr;gap:32px}}
+  .founder-card{
+    border:1px solid var(--ink);background:var(--snow);padding:28px;
+    display:flex;flex-direction:column;gap:18px
+  }
+  .founder-card .portrait{
+    aspect-ratio:1/1;width:100%;
+    background:var(--ice) center/cover no-repeat;
+    border:1px solid var(--hair);
+    background-image:url('assets/ernst.jpg');
+  }
+  .founder-card .name{font-family:var(--serif);font-size:26px;letter-spacing:-0.01em;margin:0}
+  .founder-card .role{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .founder-card ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--hair)}
+  .founder-card ul li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--hair);font-size:14px;align-items:baseline}
+  .founder-card ul li .k{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .founder-card ul li a{border-bottom:1px solid var(--hair);text-decoration:none}
+  .founder-card ul li a:hover{border-bottom-color:var(--ink)}
+
+  .founder-bio h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 18px}
+  .founder-bio h3 em{font-style:italic;color:#7a8893}
+  .founder-bio p{font-size:17px;line-height:1.65;margin:0 0 16px;max-width:58ch;color:#111315}
+
+  /* contact */
+  .contact{padding:80px 0 90px}
+  .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:36px}}
+  .contact h2{font-family:var(--serif);font-weight:300;font-size:clamp(36px,4.2vw,58px);line-height:1.05;letter-spacing:-0.025em;margin:0 0 20px}
+  .contact h2 em{font-style:italic;color:#7a8893}
+  .contact p.lede{font-size:19px;line-height:1.55;color:#1a1d21;max-width:48ch;margin:0 0 28px}
+  .contact-points{border-top:1px solid var(--ink)}
+  .contact-points .row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+  .contact-points .k{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+  .contact-points .v{font-family:var(--serif);font-size:17px;color:var(--ink)}
+  .contact-points .v a{text-decoration:none;border-bottom:1px solid var(--hair)}
+  .contact-points .v a:hover{border-bottom-color:var(--ink)}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--white);padding:56px 0 36px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px}
+  @media (max-width:900px){footer .wrap{grid-template-columns:1fr 1fr;gap:30px}}
+  footer h5{font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#8A8F95;margin:0 0 16px;font-weight:500}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  footer a{color:var(--white);text-decoration:none;opacity:0.85}
+  footer a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+  footer .foot-brand{font-family:var(--serif);font-size:22px;letter-spacing:-0.01em;color:var(--white);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  footer .foot-brand img{width:28px;height:28px;filter:invert(1)}
+  footer .foot-brand em{font-style:italic;color:#8A8F95;font-weight:300}
+  footer .legal{grid-column:1/-1;border-top:1px solid #2a2d31;padding-top:22px;margin-top:24px;display:flex;justify-content:space-between;color:#8A8F95;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;flex-wrap:wrap;gap:10px}
+  footer .tagline{max-width:34ch;color:#A8ADB3;font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:0;line-height:1.5;margin-top:4px}
+</style>
+</head>
+<body data-page="home">
+
+<div class="wrap">
+
+  <div class="meta">
+    <div><span class="dot"></span><span data-i18n="meta.loc">Arktos AI Lab · The Netherlands · Established 2025</span></div>
+    <div data-i18n="meta.kind.home">Independent Research</div>
+  </div>
+
+  <nav class="primary">
+    <a class="brand" href="./index.html">
+      <img src="assets/arktos-bear.png" alt="Arktos AI Lab" />
+      <div class="name">Arktos <em>AI Lab</em></div>
+    </a>
+    <ul>
+      <li><a href="#research" class="active" data-i18n="nav.research">Research</a></li>
+      <li><a href="#papers" data-i18n="nav.pubs">Publications</a></li>
+      <li><a href="corpora.html" data-i18n="nav.corpora">Corpora</a></li>
+      <li><a href="talitha.html" data-i18n="nav.talitha">Talitha</a></li>
+      <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      <li>
+        <span class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="en" class="on">EN</button>
+          <button type="button" data-lang-btn="nl">NL</button>
+        </span>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">
+          <span data-i18n="home.eyebrow.practice">An independent research lab</span>
+          <span class="sep">·</span>
+          <span data-i18n="home.eyebrow.est">Est. 2025</span>
+        </div>
+        <h1 class="display">
+          <span data-i18n="home.h1.a">Questions about the</span><br/>
+          <em data-i18n="home.h1.b">data</em> <span data-i18n="home.h1.c">that trains</span><br/>
+          <span data-i18n="home.h1.d">models</span><span data-i18n="home.h1.e"></span>
+        </h1>
+      </div>
+      <div>
+        <p class="lede" data-i18n="home.hero.lede">Arktos AI Lab is an independent research lab in the Netherlands, run by one researcher who works with Claude, Anthropic's AI, as a research partner. It works at the intersection of machine learning data provenance, low-resource languages and jurisdictions, and law and economics.</p>
+        <div class="callouts">
+          <span><i></i><span data-i18n="home.callout.a">Data Provenance</span></span>
+          <span><i></i><span data-i18n="home.callout.b">Low-Resource NLP</span></span>
+          <span><i></i><span data-i18n="home.callout.c">Law &amp; Economics</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- ABOUT / MISSION -->
+  <section class="about" id="about">
+    <div class="section-head">
+      <div class="num" data-i18n="home.s1.num">§ 01 · Premise</div>
+      <h2><span data-i18n="home.s1.h2.a">One researcher,</span> <em data-i18n="home.s1.h2.em">working with Claude</em>.</h2>
+    </div>
+    <div class="body">
+      <div></div>
+      <p class="lead" data-i18n="home.s1.lead">Arktos AI Lab was founded in 2025 by Ernst van Gassen and is run by him. Where it fits, the lab works with Claude, Anthropic's AI, as a research partner, and the author checks and answers for every result. The work addresses two connected questions. How the data behind machine learning systems is collected and licensed. And what responsible practice looks like in that domain.</p>
+      <div class="pullquote" data-i18n="home.s1.pull">The easiest way to improve a model is, at present, to feed it more data. The most honest way is much harder.</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- RESEARCH -->
+<section class="research" id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num" data-i18n="home.s2.num">§ 02 · Research Areas</div>
+      <h2><span data-i18n="home.s2.h2.a">Four</span> <em data-i18n="home.s2.h2.em">lines of inquiry</em>.</h2>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="research-grid">
+
+      <a class="research-item" href="research.html">
+        <div class="tag"><span data-i18n="home.card1.tag">01 / NLP &amp; Data Ethics</span><span data-i18n="home.card1.status">ACTIVE</span></div>
+        <svg class="motif" viewBox="0 0 400 56" preserveAspectRatio="none">
+          <g fill="none" stroke="#000" stroke-width="1">
+            <rect x="20" y="12" width="60" height="32"/>
+            <line x1="28" y1="20" x2="72" y2="20"/><line x1="28" y1="28" x2="72" y2="28"/><line x1="28" y1="36" x2="60" y2="36"/>
+            <line x1="90" y1="28" x2="130" y2="28"/>
+            <polygon points="128,24 134,28 128,32" fill="#000"/>
+            <rect x="140" y="12" width="60" height="32" fill="#EEF2F5"/>
+            <line x1="210" y1="28" x2="250" y2="28"/>
+            <polygon points="248,24 254,28 248,32" fill="#000"/>
+            <rect x="260" y="12" width="60" height="32"/>
+            <line x1="268" y1="20" x2="312" y2="20"/><line x1="268" y1="28" x2="312" y2="28"/><line x1="268" y1="36" x2="300" y2="36"/>
+            <line x1="330" y1="28" x2="370" y2="28" stroke-dasharray="3 3"/>
+            <text x="340" y="16" font-family="JetBrains Mono" font-size="8" fill="#5A6068">T?</text>
+          </g>
+        </svg>
+        <h3><span data-i18n="home.card1.h3.a">Data provenance &amp;</span> <em data-i18n="home.card1.h3.em">license compatibility</em> <span data-i18n="home.card1.h3.b">in low-resource NLP.</span></h3>
+        <p data-i18n="home.card1.body">Who holds the rights in the text a corpus ships, and does its license say so? Audits of African-language corpora, a published due-diligence procedure, and corpora that trace each record to its publisher.</p>
+        <div class="more"><span data-i18n="home.card1.more">Read the RAIL paper</span> <span class="arr">→</span></div>
+      </a>
+
+      <div class="research-item">
+        <div class="tag"><span data-i18n="home.card2.tag">02 / Legal Informatics</span><span data-i18n="home.card2.status">ACCEPTED</span></div>
+        <svg class="motif" viewBox="0 0 400 56" preserveAspectRatio="none">
+          <g fill="none" stroke="#000" stroke-width="1">
+            <circle cx="40" cy="28" r="6"/><circle cx="120" cy="14" r="6"/><circle cx="120" cy="42" r="6"/>
+            <circle cx="210" cy="28" r="6" fill="#EEF2F5"/><circle cx="300" cy="14" r="6"/><circle cx="300" cy="42" r="6"/><circle cx="370" cy="28" r="6"/>
+            <line x1="46" y1="26" x2="114" y2="15"/><line x1="46" y1="30" x2="114" y2="41"/>
+            <line x1="126" y1="15" x2="204" y2="26"/><line x1="126" y1="41" x2="204" y2="30"/>
+            <line x1="216" y1="26" x2="294" y2="15"/><line x1="216" y1="30" x2="294" y2="41" stroke-dasharray="3 3"/>
+            <line x1="306" y1="15" x2="364" y2="26"/>
+          </g>
+        </svg>
+        <h3><span data-i18n="home.card2.h3.a">A legal</span> <em data-i18n="home.card2.h3.em">knowledge graph</em> <span data-i18n="home.card2.h3.b">for a low-resource jurisdiction.</span></h3>
+        <p data-i18n="home.card2.body">LexSR consolidates the legislation of Suriname and links it to case law. Accepted at JURIX 2026; the corpus of government-sourced legislation and court decisions is open on Zenodo.</p>
+      </div>
+
+      <a class="research-item" href="#papers">
+        <div class="tag"><span data-i18n="home.card3.tag">03 / Speech &amp; Archives</span><span data-i18n="home.card3.status">PUBLISHED</span></div>
+        <svg class="motif" viewBox="0 0 400 56" preserveAspectRatio="none">
+          <g fill="none" stroke="#000" stroke-width="1">
+            <polyline points="20,28 40,28 48,14 56,42 64,20 72,36 80,28 120,28 128,10 136,46 144,18 152,38 160,28 200,28"/>
+            <line x1="210" y1="28" x2="250" y2="28"/>
+            <polygon points="248,24 254,28 248,32" fill="#000"/>
+            <rect x="262" y="12" width="110" height="32" fill="#EEF2F5"/>
+            <line x1="270" y1="22" x2="362" y2="22"/><line x1="270" y1="34" x2="340" y2="34"/>
+          </g>
+        </svg>
+        <h3><span data-i18n="home.card3.h3.a">Public-domain</span> <em data-i18n="home.card3.h3.em">broadcast archives</em> <span data-i18n="home.card3.h3.b">as speech data.</span></h3>
+        <p data-i18n="home.card3.body">Auditing and packaging African speech resources from government archives, and automatic transcription of Voice of America African-language audio. Two papers published in the DHASA 2026 selected papers.</p>
+        <div class="more"><span data-i18n="home.card3.more">See publications</span> <span class="arr">→</span></div>
+      </a>
+
+      <a class="research-item" href="#papers">
+        <div class="tag"><span data-i18n="home.card4.tag">04 / Law &amp; Economics</span><span data-i18n="home.card4.status">PUBLISHED</span></div>
+        <svg class="motif" viewBox="0 0 400 56" preserveAspectRatio="none">
+          <g fill="none" stroke="#000" stroke-width="1">
+            <circle cx="60" cy="28" r="20" stroke-dasharray="2 3" opacity="0.5"/>
+            <circle cx="48" cy="22" r="3"/><circle cx="64" cy="18" r="3"/><circle cx="72" cy="32" r="3"/><circle cx="52" cy="36" r="3"/><circle cx="68" cy="38" r="3"/>
+            <circle cx="200" cy="28" r="20" stroke-dasharray="2 3" opacity="0.5"/>
+            <circle cx="192" cy="22" r="3"/><circle cx="208" cy="20" r="3"/><circle cx="212" cy="34" r="3"/><circle cx="194" cy="36" r="3"/>
+            <circle cx="340" cy="28" r="20" stroke-dasharray="2 3" opacity="0.5"/>
+            <circle cx="332" cy="24" r="3"/><circle cx="348" cy="22" r="3"/><circle cx="350" cy="34" r="3"/><circle cx="336" cy="36" r="3"/>
+            <line x1="82" y1="28" x2="178" y2="28"/>
+            <line x1="222" y1="28" x2="318" y2="28"/>
+          </g>
+        </svg>
+        <h3><span data-i18n="home.card4.h3.a">Comparables, crises and</span> <em data-i18n="home.card4.h3.em">the trilemma</em>.</h3>
+        <p data-i18n="home.card4.body">A pan-European clustering method for transfer-pricing comparables, in IBFD's International Transfer Pricing Journal. And Russia's crisis responses read through the macroeconomic trilemma, in the Russian Journal of Economics, with Busola Ijaware.</p>
+        <div class="more"><span data-i18n="home.card4.more">See publications</span> <span class="arr">→</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- PUBLICATIONS -->
+  <section class="papers" id="papers">
+    <div class="section-head">
+      <div class="num" data-i18n="home.s3.num">§ 03 · Publications</div>
+      <h2><span data-i18n="home.s3.h2.a">Everything</span> <em data-i18n="home.s3.h2.em">so far</em>.</h2>
+    </div>
+
+    <div class="paper-list">
+      <a class="paper" href="https://doi.org/10.5281/zenodo.23467651" target="_blank" rel="noopener">
+        <div class="date" data-i18n="home.p.forthcoming">Forthcoming</div>
+        <div>
+          <h4 class="title">LexSR: <em>consolidating legislation and linking case law</em> to build a legal knowledge graph for Suriname, a low-resource jurisdiction.</h4>
+          <p class="sub" data-i18n="home.p.lexsr">Accepted at JURIX 2026 (Toulouse, 9-10 December). The accompanying corpus (751 legislative works, 300 court decisions) is on Zenodo.</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill">JURIX ’26</span></div>
+      </a>
+
+      <a class="paper" href="https://upjournals.up.ac.za/index.php/dhasa/article/view/7706" target="_blank" rel="noopener">
+        <div class="date">Nov 2026</div>
+        <div>
+          <h4 class="title">What the license tag does not cover: <em>database rights, container licensing, and rights disclosure at deposit</em>.</h4>
+          <p class="sub" data-i18n="home.p.container">Journal of the Digital Humanities Association of Southern Africa 7(2), 167-179. DHASA 2026 Selected Papers. doi:10.55492/dhasa.v7i02.7706</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill">DHASA ’26</span></div>
+      </a>
+
+      <a class="paper" href="https://upjournals.up.ac.za/index.php/dhasa/article/view/7704" target="_blank" rel="noopener">
+        <div class="date">Nov 2026</div>
+        <div>
+          <h4 class="title">AfriBase-Speech: <em>auditing, tiering, and packaging African speech resources</em> from government public domain archives.</h4>
+          <p class="sub" data-i18n="home.p.speech">Journal of the Digital Humanities Association of Southern Africa 7(2), 132-141. DHASA 2026 Selected Papers. doi:10.55492/dhasa.v7i02.7704</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill">DHASA ’26</span></div>
+      </a>
+
+      <a class="paper" href="https://upjournals.up.ac.za/index.php/dhasa/article/view/7705" target="_blank" rel="noopener">
+        <div class="date">Nov 2026</div>
+        <div>
+          <h4 class="title">Archival ASR for African broadcasting: <em>automatic transcription of VOA African-language audio</em>.</h4>
+          <p class="sub" data-i18n="home.p.voa">Journal of the Digital Humanities Association of Southern Africa 7(2), 142-150. DHASA 2026 Selected Papers. doi:10.55492/dhasa.v7i02.7705</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill">DHASA ’26</span></div>
+      </a>
+
+      <a class="paper" href="https://doi.org/10.32609/j.ruje.12.190983" target="_blank" rel="noopener">
+        <div class="date">Oct 2026</div>
+        <div>
+          <h4 class="title">Russia's crisis responses through the macroeconomic trilemma, 1998-2024: <em>from financial shocks to constraint shocks</em>.</h4>
+          <p class="sub" data-i18n="home.p.ruje">Russian Journal of Economics 12(3), 358-389. Distinguishes financial shocks, which occur within functioning markets, from constraint shocks, which impair the infrastructure of exchange itself, across four crisis episodes.</p>
+        </div>
+        <div class="authors">Ernst van Gassen, Busola Ijaware</div>
+        <div class="venue"><span class="pill">RuJE</span></div>
+      </a>
+
+      <a class="paper" href="research.html">
+        <div class="date">May 2026</div>
+        <div>
+          <h4 class="title">Open but Unvetted: <em>the ethics of African language data</em>.</h4>
+          <p class="sub" data-i18n="home.p.rail">Proceedings of RAIL 2026 at LREC 2026, pp. 128-139. A license-provenance audit of more than twenty corpus families, with three case-study languages (Kituba/Munukutuba, Zarma and Moore) and four documented failure modes.</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill">RAIL ’26 · LREC</span></div>
+      </a>
+
+      <a class="paper" href="https://doi.org/10.59403/ka7jpq" target="_blank" rel="noopener">
+        <div class="date">Nov 2025</div>
+        <div>
+          <h4 class="title">Beyond the Single Market: <em>the case for clustering cross-border comparables</em> in pan-European comparability studies.</h4>
+          <p class="sub" data-i18n="home.p.itpj">International Transfer Pricing Journal 32(6), IBFD. A five-phase method for pan-European comparability analyses, with market clustering by geography, GDP, labour costs and sovereign risk.</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill">ITPJ · IBFD</span></div>
+      </a>
+    </div>
+
+    <p class="list-note" data-i18n="home.pubs.foot">Published and accepted work only. Papers under review are not listed.</p>
+
+    <div class="sublabel" id="talks" data-i18n="home.talks.label">Talks</div>
+    <div class="paper-list">
+      <div class="paper">
+        <div class="date">Sep 2026</div>
+        <div>
+          <h4 class="title">Yours to read, not yours to mine: <em>what open data licences do not tell you</em>.</h4>
+          <p class="sub" data-i18n="home.talk.dhasa">DHASA Digital Humanities colloquium, online.</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill soft">Talk</span></div>
+      </div>
+    </div>
+
+    <div class="sublabel" id="data" data-i18n="home.data.label">Data &amp; code</div>
+    <div class="paper-list">
+      <a class="paper" href="https://doi.org/10.5281/zenodo.23467651" target="_blank" rel="noopener">
+        <div class="date">Oct 2026</div>
+        <div>
+          <h4 class="title">LexSR Suriname legal corpus <em>v1.0</em>.</h4>
+          <p class="sub" data-i18n="home.d.lexsr">Government-sourced legislation and court decisions of Suriname, with the code that builds them.</p>
+        </div>
+        <div class="authors">doi:10.5281/zenodo.23467651</div>
+        <div class="venue"><span class="pill soft">Zenodo</span></div>
+      </a>
+      <a class="paper" href="https://github.com/arktos-ai-lab/RuJE-Russia-Crisis-Responses-through-the-Macroeconomic-Trilemma" target="_blank" rel="noopener">
+        <div class="date">Oct 2026</div>
+        <div>
+          <h4 class="title">Trilemma <em>replication code</em>.</h4>
+          <p class="sub" data-i18n="home.d.ruje">Data construction and figures for the Russian Journal of Economics paper, from official CBR, Rosstat and MinFin sources.</p>
+        </div>
+        <div class="authors">Ernst van Gassen, Busola Ijaware</div>
+        <div class="venue"><span class="pill soft">GitHub</span></div>
+      </a>
+      <a class="paper" href="https://github.com/arktos-ai-lab/lexsr-suriname-legal-corpus" target="_blank" rel="noopener">
+        <div class="date">Oct 2026</div>
+        <div>
+          <h4 class="title">LexSR <em>pipeline and evaluation code</em>.</h4>
+          <p class="sub" data-i18n="home.d.lexsrcode">Code that builds the LexSR corpus and knowledge graph from the source documents.</p>
+        </div>
+        <div class="authors">Ernst van Gassen</div>
+        <div class="venue"><span class="pill soft">GitHub</span></div>
+      </a>
+      <a class="paper" href="https://github.com/arktos-ai-lab/afribase-speech-pipeline" target="_blank" rel="noopener">
+        <div class="date">Oct 2026</div>
+        <div>
+          <h4 class="title">AfriBase-Speech <em>pipeline</em>.</h4>
+          <p class="sub" data-i18n="home.d.afribase">Code that turns public domain US government lesson audio into training data for Whisper-small, for African languages.</p>
+        </div>
+        <div class="authors">MIT</div>
+        <div class="venue"><span class="pill soft">GitHub</span></div>
+      </a>
+      <a class="paper" href="corpora.html">
+        <div class="date">2026</div>
+        <div>
+          <h4 class="title">Text Corpora Index: <em>African-language NLP</em>.</h4>
+          <p class="sub" data-i18n="home.d.index">License-tier assignments for the corpus families reviewed in Open but Unvetted.</p>
+        </div>
+        <div class="authors">Arktos AI Lab</div>
+        <div class="venue"><span class="pill soft">Index</span></div>
+      </a>
+    </div>
+    <p class="list-note"><a href="https://github.com/arktos-ai-lab" target="_blank" rel="noopener" data-i18n="home.data.all">All repositories on GitHub →</a></p>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder" id="founder">
+    <div class="section-head">
+      <div class="num" data-i18n="home.s4.num">§ 04 · About the researcher</div>
+      <h2>Ernst <em>van Gassen</em></h2>
+    </div>
+    <div class="founder-grid">
+      <div class="founder-card">
+        <div class="portrait" role="img" aria-label="Portrait of Ernst van Gassen"></div>
+        <div>
+          <div class="role" data-i18n="home.founder.role">Independent researcher at Arktos AI Lab</div>
+          <h3 class="name" style="font-family:var(--serif);font-weight:400">Ernst van Gassen</h3>
+        </div>
+        <ul>
+          <li><span class="k" data-i18n="home.founder.based">Based</span><span data-i18n="home.founder.based.v">The Netherlands</span></li>
+          <li><span class="k" data-i18n="home.founder.fields">Fields</span><span data-i18n="home.founder.fields.v">NLP · Law · Economics</span></li>
+          <li><span class="k">ORCID</span><span><a href="https://orcid.org/0009-0000-0314-6441" target="_blank" rel="noopener">0009-0000-0314-6441</a></span></li>
+          <li><span class="k">GitHub</span><span><a href="https://github.com/arktos-ai-lab" target="_blank" rel="noopener">arktos-ai-lab</a></span></li>
+          <li><span class="k">LinkedIn</span><span><a href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">/in/ernst-van-gassen</a></span></li>
+        </ul>
+      </div>
+      <div class="founder-bio">
+        <h3><span data-i18n="home.bio.h3.a">An</span> <em data-i18n="home.bio.h3.em">independent</em> <span data-i18n="home.bio.h3.b">researcher working across two fields.</span></h3>
+        <p data-i18n="home.bio.p1">Arktos AI Lab is the research vehicle I founded in 2025. It brings my work in international tax and economics into conversation with my interest in how machine learning systems are built. Specifically, the data that trains them and the legal frameworks that govern it.</p>
+        <p data-i18n="home.bio.p2">My NLP work began with an audit of Creative Commons licensing across African language corpora, published at RAIL 2026 (LREC). It has since grown into building corpora and legal resources: a legal knowledge graph for Suriname, accepted at JURIX 2026, and three papers at DHASA 2026 on speech archives and rights disclosure. On the economics side I have written on transfer-pricing comparables in IBFD's International Transfer Pricing Journal and, with Busola Ijaware, on Russia's crisis responses in the Russian Journal of Economics.</p>
+        <p data-i18n="home.bio.p3">The lab is one researcher, working with Claude as a research partner where it fits. Claude helps with code, analysis and drafting. I choose the questions, check every result, and answer for every claim.</p>
+        <p data-i18n="home.bio.p4">I welcome co-authors. If you work on data provenance, low-resource NLP, or the law and economics of AI, and you're looking for a collaborator on a paper, I'd like to hear from you. The same goes for reviewers and funders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-grid">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px" data-i18n="home.s5.num">§ 05 · Get in touch</div>
+        <h2><span data-i18n="home.contact.h2.a">For questions,</span> <em data-i18n="home.contact.h2.em">collaborations, or funding conversations</em>.</h2>
+        <p class="lede" data-i18n="home.contact.lede1">LinkedIn is the best place to reach me. E-mail also works, at info@arktosailab.com. I answer every serious message, usually within a week.</p>
+        <p class="lede" data-i18n="home.contact.lede2">I'm especially interested in two kinds of conversation. First, co-authors. If you are working on data provenance, low-resource language NLP, or law and economics of AI, and you're looking for a collaborator on a paper, I'd like to hear from you. Second, funders supporting research in those same areas.</p>
+      </div>
+      <div class="contact-points">
+        <div class="row"><div class="k" data-i18n="home.contact.pref">Preferred</div><div class="v"><a href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener" data-i18n="home.contact.pref.v">Message me on LinkedIn</a></div></div>
+        <div class="row"><div class="k">LinkedIn</div><div class="v"><a href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">ernst-van-gassen</a></div></div>
+        <div class="row"><div class="k" data-i18n="home.contact.email">E-mail</div><div class="v"><a href="mailto:info@arktosailab.com">info@arktosailab.com</a></div></div>
+        <div class="row"><div class="k">ORCID</div><div class="v"><a href="https://orcid.org/0009-0000-0314-6441" target="_blank" rel="noopener">0009-0000-0314-6441</a></div></div>
+        <div class="row"><div class="k" data-i18n="home.contact.based">Based</div><div class="v" data-i18n="home.contact.based.v">The Netherlands</div></div>
+        <div class="row"><div class="k" data-i18n="home.contact.open">Open to</div><div class="v" data-i18n="home.contact.open.v">Collaboration · Funding · Peer review</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="foot-brand">
+        <img src="assets/arktos-bear.png" alt=""/>
+        Arktos <em>AI Lab</em>
+      </div>
+      <div class="tagline" data-i18n="foot.tagline">An independent research lab based in the Netherlands, working on data provenance, low-resource NLP, and law and economics.</div>
+    </div>
+    <div>
+      <h5 data-i18n="foot.research">Research</h5>
+      <ul>
+        <li><a href="https://doi.org/10.32609/j.ruje.12.190983" target="_blank" rel="noopener">Trilemma (RuJE)</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23467651" target="_blank" rel="noopener">LexSR</a></li>
+        <li><a href="research.html">Open but Unvetted</a></li>
+        <li><a href="https://doi.org/10.59403/ka7jpq" target="_blank" rel="noopener">Beyond the Single Market</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.pubs">Publications</h5>
+      <ul>
+        <li><a href="#papers" data-i18n="foot.allpubs">All publications</a></li>
+        <li><a href="#data" data-i18n="foot.data">Data &amp; code</a></li>
+        <li><a href="corpora.html">Text Corpora Index</a></li>
+        <li><a href="talitha.html">Talitha</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.lab">About</h5>
+      <ul>
+        <li><a href="#founder">Ernst van Gassen</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="https://orcid.org/0009-0000-0314-6441" target="_blank" rel="noopener">ORCID</a></li>
+        <li><a href="https://github.com/arktos-ai-lab" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.contact">Contact</h5>
+      <ul>
+        <li><a href="contact.html" data-i18n="foot.contactpage">Contact page</a></li>
+        <li><a href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:info@arktosailab.com">info@arktosailab.com</a></li>
+      </ul>
+    </div>
+    <div class="legal">
+      <div>© 2026 Arktos AI Lab · Ernst van Gassen</div>
+      <div data-i18n="foot.loc">The Netherlands</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+
+</body>
+</html>

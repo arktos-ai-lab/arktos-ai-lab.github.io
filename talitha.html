@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talitha · Paper translations · Arktos AI Lab</title>
+<meta name="description" content="Talitha publishes RAIL 2020 papers in English, French and Swahili. Translations are made by open models and checked against the original by automated review, not by a human." />
+<link rel="canonical" href="https://arktosailab.com/talitha.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Arktos AI Lab" />
+<meta property="og:title" content="Talitha · Paper translations · Arktos AI Lab" />
+<meta property="og:description" content="Talitha publishes RAIL 2020 papers in English, French and Swahili. Translations are made by open models and checked against the original by automated review, not by a human." />
+<meta property="og:url" content="https://arktosailab.com/talitha.html" />
+<meta property="og:image" content="https://arktosailab.com/assets/arktos-bear.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="assets/arktos-bear.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#F6F9FB;
+    --snow:#EEF4F8;
+    --ice:#DCE7EF;
+    --frost:#B8CCDA;
+    --ink:#0A1620;
+    --muted:#4E6473;
+    --hair:rgba(10,22,32,0.16);
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --serif:'Spectral', 'Times New Roman', serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--white);color:var(--ink);font-family:var(--serif);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-size:17px;line-height:1.55;display:flex;flex-direction:column;min-height:100vh}
+  a{color:inherit}
+  ::selection{background:var(--ink);color:var(--white)}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;width:100%}
+  @media (max-width:720px){.wrap{padding:0 22px}}
+
+  .meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--muted);padding:14px 0;border-bottom:1px solid var(--hair);
+  }
+  .meta .dot{width:6px;height:6px;border-radius:50%;background:#3b8a57;display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(59,138,87,0.15)}
+
+  nav.primary{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 0 26px;border-bottom:1px solid var(--ink);
+  }
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+  .brand img{width:34px;height:34px;display:block}
+  .brand .name{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-0.01em}
+  .brand .name em{font-style:italic;font-weight:400;color:var(--muted)}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;font-family:var(--mono);font-size:12px;letter-spacing:0.04em;text-transform:uppercase;align-items:center}
+  nav ul a{text-decoration:none;color:var(--ink);opacity:0.75;transition:opacity .2s}
+  nav ul a:hover{opacity:1}
+  nav ul a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:4px}
+  .lang{display:inline-flex;gap:0;border:1px solid var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:0.1em}
+  .lang button{background:var(--white);border:none;color:var(--ink);padding:5px 9px;cursor:pointer;font:inherit;letter-spacing:inherit}
+  .lang button.on{background:var(--ink);color:var(--white)}
+
+  main{flex:1 0 auto}
+
+  /* hero / stub */
+  .t-head{padding:70px 0 56px;border-bottom:1px solid var(--ink);position:relative;overflow:hidden}
+  .badge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);
+    border:1px solid var(--ink);padding:7px 12px;margin-bottom:28px;background:var(--ice);
+  }
+  .badge i{width:7px;height:7px;border-radius:50%;background:#3b8a57;display:inline-block;box-shadow:0 0 0 3px rgba(59,138,87,0.18)}
+  .t-head h1{font-family:var(--serif);font-weight:300;font-size:clamp(46px,7vw,104px);line-height:0.98;letter-spacing:-0.03em;margin:0 0 24px}
+  .t-head h1 em{font-style:italic;color:#7a8893;font-weight:300}
+  .t-head .lede{font-family:var(--serif);font-size:21px;line-height:1.5;color:#1a1d21;max-width:60ch;margin:0}
+  .t-head .lede em{font-style:italic;color:#7a8893}
+
+  /* concept row */
+  .concept{padding:56px 0;border-bottom:1px solid var(--ink)}
+  .concept-grid{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
+  @media (max-width:900px){.concept-grid{grid-template-columns:1fr;gap:16px}}
+  .concept .num{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .concept p{font-size:19px;line-height:1.6;margin:0 0 16px;max-width:64ch;color:#111315}
+  .concept p em{font-style:italic;color:#7a8893}
+
+  /* language marquee */
+  .langs-strip{border-bottom:1px solid var(--ink);padding:28px 0;overflow:hidden}
+  .langs-strip .track{display:flex;gap:14px;flex-wrap:wrap}
+  .lang-chip{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+    border:1px solid var(--hair);padding:8px 12px;color:var(--ink);white-space:nowrap;
+  }
+  .lang-chip.on{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+  /* what to expect */
+  .expect{padding:56px 0 8px}
+  .expect h2{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin:0 0 28px;font-weight:500}
+  .expect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--hair)}
+  @media (max-width:900px){.expect-grid{grid-template-columns:1fr}}
+  .card{padding:28px 24px;border-right:1px solid var(--hair);border-top:1px solid var(--hair)}
+  .card .n{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:24px;letter-spacing:-0.015em;margin:0 0 10px;line-height:1.15}
+  .card h3 em{font-style:italic;color:#7a8893}
+  .card p{font-size:15px;line-height:1.55;margin:0;color:#1a1d21}
+
+  /* status / cta */
+  .status{padding:56px 0 72px}
+  .status-box{
+    border:1px solid var(--ink);background:var(--snow);padding:32px;
+    display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;
+  }
+  @media (max-width:900px){.status-box{grid-template-columns:1fr;gap:24px}}
+  .status-box h2{font-family:var(--serif);font-weight:400;font-size:28px;letter-spacing:-0.015em;margin:0 0 12px;line-height:1.2}
+  .status-box h2 em{font-style:italic;color:#7a8893}
+  .status-box p{font-size:16px;line-height:1.6;margin:0;color:#1a1d21;max-width:48ch}
+  .status-actions{display:flex;flex-direction:column;gap:12px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+    border:1px solid var(--ink);padding:16px 20px;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink);background:var(--white);transition:background .2s;
+  }
+  .btn:hover{background:var(--ice)}
+  .btn.primary{background:var(--ink);color:var(--white)}
+  .btn.primary:hover{background:#1a2a3a}
+
+  footer{background:var(--ink);color:var(--white);padding:40px 0 28px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;flex-shrink:0}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;color:#8A8F95;font-size:11px;text-transform:uppercase;letter-spacing:0.1em}
+  footer a{color:var(--white);text-decoration:none;opacity:0.85}
+  footer a:hover{opacity:1}
+</style>
+</head>
+<body data-page="talitha">
+
+<div class="wrap">
+  <div class="meta">
+    <div><span class="dot"></span>Arktos AI Lab · The Netherlands · Established 2025</div>
+    <div>Talitha · Paper translations</div>
+  </div>
+
+  <nav class="primary">
+    <a class="brand" href="./index.html">
+      <img src="assets/arktos-bear.png" alt="Arktos AI Lab" />
+      <div class="name">Arktos <em>AI Lab</em></div>
+    </a>
+    <ul>
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#papers">Publications</a></li>
+      <li><a href="corpora.html">Corpora</a></li>
+      <li><a href="talitha.html" class="active">Talitha</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="t-head">
+      <div class="badge"><i></i>Launched</div>
+      <h1><em>Talitha</em>.</h1>
+      <p class="lede">Talitha puts research papers into more languages. The first collection is the RAIL 2020 papers, in English, French and Swahili, at <a href="https://talithapapers.com/" target="_blank" rel="noopener">talithapapers.com</a>.</p>
+    </header>
+
+    <section class="langs-strip">
+      <div class="wrap" style="padding:0">
+        <div class="track">
+          <span class="lang-chip on">English</span>
+          <span class="lang-chip on">Français</span>
+          <span class="lang-chip on">Kiswahili</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="expect">
+      <div class="wrap" style="padding:0">
+        <h2>How it works</h2>
+        <div class="expect-grid">
+          <div class="card">
+            <div class="n">01 · Open models</div>
+            <h3>Translated by <em>open models</em>.</h3>
+            <p>Each paper is translated by openly available models, not by a commercial service.</p>
+          </div>
+          <div class="card">
+            <div class="n">02 · Automated check</div>
+            <h3>Checked against <em>the original</em>.</h3>
+            <p>An automated review compares each translation with the original paper. A human has not reviewed the translations. Cite the original paper, not the translation.</p>
+          </div>
+          <div class="card">
+            <div class="n">03 · Licence</div>
+            <h3>One licence <em>per paper</em>.</h3>
+            <p>Every paper keeps its own licence, shown on its page together with a link to the source.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="status">
+      <div class="status-box">
+        <div>
+          <h2>Read the papers <em>on Talitha</em>.</h2>
+          <p>Suggestions for papers to add, corrections and offers to review a translation are welcome.</p>
+        </div>
+        <div class="status-actions">
+          <a class="btn primary" href="https://talithapapers.com/" target="_blank" rel="noopener">
+            <span>Open Talitha</span>
+            <span>↗</span>
+          </a>
+          <a class="btn" href="contact.html">
+            <span>Get in touch</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Arktos AI Lab · Ernst van Gassen · The Netherlands</div>
+    <div><a href="cv.html">CV</a> · <a href="corpora.html">Corpora</a> · <a href="contact.html">Contact</a> · <a href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+</body>
+</html>

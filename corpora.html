@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Text Corpora Index · African-language NLP · Arktos AI Lab</title>
+<meta name="description" content="Text Corpora Index for African-language NLP: license tiers for the corpus families reviewed in Open but Unvetted." />
+<link rel="canonical" href="https://arktosailab.com/corpora.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Arktos AI Lab" />
+<meta property="og:title" content="Text Corpora Index · African-language NLP · Arktos AI Lab" />
+<meta property="og:description" content="Text Corpora Index for African-language NLP: license tiers for the corpus families reviewed in Open but Unvetted." />
+<meta property="og:url" content="https://arktosailab.com/corpora.html" />
+<meta property="og:image" content="https://arktosailab.com/assets/arktos-bear.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="assets/arktos-bear.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#F6F9FB;
+    --snow:#EEF4F8;
+    --ice:#DCE7EF;
+    --frost:#B8CCDA;
+    --ink:#0A1620;
+    --muted:#4E6473;
+    --hair:rgba(10,22,32,0.16);
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --serif:'Spectral', 'Times New Roman', serif;
+
+    --t1:#2F7D3E; /* public domain - green */
+    --t2:#2D5AA6; /* permissive     - blue */
+    --t3:#7A4FB1; /* share-alike    - purple */
+    --t4a:#C58415;/* noncommercial  - amber */
+    --t4b:#B43A3A;/* no-derivs      - red */
+    --t5:#000000; /* prohibited     - black */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--white);color:var(--ink);font-family:var(--serif);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-size:16px;line-height:1.55}
+  a{color:inherit}
+
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+  @media (max-width:720px){.wrap{padding:0 22px}}
+
+  .meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--muted);padding:14px 0;border-bottom:1px solid var(--hair);
+  }
+  .meta .dot{width:6px;height:6px;border-radius:50%;background:#3b8a57;display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(59,138,87,0.15)}
+
+  nav.primary{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 0 26px;border-bottom:1px solid var(--ink);
+  }
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+  .brand img{width:34px;height:34px;display:block}
+  .brand .name{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-0.01em}
+  .brand .name em{font-style:italic;font-weight:400;color:var(--muted)}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;font-family:var(--mono);font-size:12px;letter-spacing:0.04em;text-transform:uppercase;align-items:center}
+  nav ul a{text-decoration:none;color:var(--ink);opacity:0.75;transition:opacity .2s}
+  nav ul a:hover{opacity:1}
+  nav ul a.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:4px}
+  .lang{display:inline-flex;gap:0;border:1px solid var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:0.1em}
+  .lang button{background:var(--white);border:none;color:var(--ink);padding:5px 9px;cursor:pointer;font:inherit;letter-spacing:inherit}
+  .lang button.on{background:var(--ink);color:var(--white)}
+
+  /* masthead */
+  .mast{padding:56px 0 40px;border-bottom:1px solid var(--ink);display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:end}
+  @media (max-width:900px){.mast{grid-template-columns:1fr;gap:18px}}
+  .mast .num{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .mast h1{font-family:var(--serif);font-weight:300;font-size:clamp(36px,5vw,66px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 12px}
+  .mast h1 em{font-style:italic;color:#7a8893;font-weight:300}
+  .mast p{font-family:var(--serif);font-size:18px;line-height:1.55;max-width:62ch;margin:0 0 10px;color:#1a1d21}
+  .mast .kicker{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+
+  /* banner */
+  .embargo{
+    border:1px solid var(--ink);background:var(--ice);
+    margin:28px 0 0;padding:18px 20px;
+    display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center;
+  }
+  @media (max-width:720px){.embargo{grid-template-columns:1fr;gap:6px}}
+  .embargo .k{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink)}
+  .embargo p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
+
+  /* legend */
+  .legend{
+    padding:36px 0 8px;border-bottom:1px solid var(--hair);
+    display:grid;grid-template-columns:220px 1fr;gap:40px;
+  }
+  @media (max-width:900px){.legend{grid-template-columns:1fr;gap:14px}}
+  .legend h2{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin:0;padding-top:4px;font-weight:500}
+  .legend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px}
+  @media (max-width:900px){.legend-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:540px){.legend-grid{grid-template-columns:1fr}}
+  .legend-item{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:start}
+  .tier-chip{display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:22px;padding:0 8px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:#fff;font-weight:500;border-radius:2px}
+  .tier-chip.t1{background:var(--t1)}
+  .tier-chip.t2{background:var(--t2)}
+  .tier-chip.t3{background:var(--t3)}
+  .tier-chip.t4a{background:var(--t4a)}
+  .tier-chip.t4b{background:var(--t4b)}
+  .tier-chip.t5{background:var(--t5)}
+  .legend-item .label{font-family:var(--serif);font-size:14px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:2px}
+  .legend-item .hint{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);line-height:1.45}
+
+  /* controls */
+  .controls{
+    display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+    padding:20px 0;border-bottom:1px solid var(--ink);
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+  }
+  .controls .search{flex:1;min-width:220px;display:flex;align-items:center;border:1px solid var(--ink);background:var(--white)}
+  .controls .search input{
+    flex:1;border:none;background:transparent;font:inherit;letter-spacing:inherit;text-transform:none;
+    padding:10px 12px;color:var(--ink);outline:none;font-size:13px;
+  }
+  .controls .search::before{content:"⌕";padding:0 10px;color:var(--muted);font-size:14px}
+  .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .filters button{
+    font:inherit;letter-spacing:inherit;text-transform:inherit;
+    background:var(--white);border:1px solid var(--ink);color:var(--ink);
+    padding:7px 10px;cursor:pointer;
+  }
+  .filters button.on{background:var(--ink);color:var(--white)}
+  .count{margin-left:auto;color:var(--ink)}
+
+  /* table */
+  .table-wrap{padding:0 0 60px;border-bottom:1px solid var(--ink)}
+  table.corpora{
+    width:100%;border-collapse:collapse;font-size:14px;
+  }
+  table.corpora th, table.corpora td{
+    border-bottom:1px solid var(--hair);padding:14px 12px;text-align:left;vertical-align:top;
+  }
+  table.corpora th{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
+    font-weight:500;background:var(--snow);position:sticky;top:0;z-index:2;
+    border-bottom:1px solid var(--ink);
+  }
+  table.corpora td.name{font-family:var(--serif);font-size:16px;font-weight:500;letter-spacing:-0.005em;min-width:170px}
+  table.corpora td.name .kind{display:block;font-family:var(--serif);font-style:italic;font-size:12px;color:var(--muted);font-weight:400;margin-top:2px}
+  table.corpora td.langs{font-family:var(--mono);font-size:11px;color:var(--ink);letter-spacing:0.02em;min-width:110px}
+  table.corpora td.lic{font-family:var(--mono);font-size:11px;letter-spacing:0.03em;color:var(--ink);min-width:110px}
+  table.corpora td.lic .mis{display:block;font-family:var(--serif);font-style:italic;font-size:12px;color:var(--t4b);margin-top:2px}
+  table.corpora td.tier{width:72px;text-align:center}
+  table.corpora td.notes{font-family:var(--serif);font-size:14px;line-height:1.45;color:#1a1d21;max-width:46ch}
+  table.corpora td.link{width:60px;text-align:right;font-family:var(--mono);font-size:11px}
+  table.corpora td.link a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair)}
+  table.corpora td.link a:hover{border-bottom-color:var(--ink)}
+  table.corpora tbody tr:hover{background:var(--snow)}
+  table.corpora tbody tr.hidden{display:none}
+  @media (max-width:900px){
+    table.corpora th.hide-sm, table.corpora td.hide-sm{display:none}
+    table.corpora td.notes{font-size:13px}
+  }
+
+  .summary{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin:24px 0 0;border:1px solid var(--ink);
+    font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+  }
+  @media (max-width:720px){.summary{grid-template-columns:repeat(3,1fr)}}
+  .summary > div{padding:16px 14px;border-right:1px solid var(--hair)}
+  .summary > div:last-child{border-right:none}
+  @media (max-width:720px){.summary > div:nth-child(3n){border-right:none}}
+  .summary .lbl{color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .summary .lbl i{width:10px;height:10px;display:inline-block;border-radius:2px}
+  .summary .num{font-family:var(--serif);font-size:28px;color:var(--ink);letter-spacing:-0.02em;font-weight:400}
+  .summary .sub{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--muted);margin-top:4px}
+
+  /* cta */
+  .cta{padding:64px 0 80px}
+  .cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
+  @media (max-width:900px){.cta-grid{grid-template-columns:1fr;gap:28px}}
+  .cta h2{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 18px}
+  .cta h2 em{font-style:italic;color:#7a8893}
+  .cta p{font-size:17px;line-height:1.55;color:#1a1d21;margin:0 0 16px;max-width:56ch}
+  .cta-actions{display:flex;flex-direction:column;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:10px;
+    border:1px solid var(--ink);padding:14px 18px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink);background:var(--white);transition:background .2s;
+  }
+  .btn:hover{background:var(--ice)}
+  .btn.primary{background:var(--ink);color:var(--white)}
+  .btn.primary:hover{background:#1a2a3a}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--white);padding:40px 0 28px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;color:#8A8F95;font-size:11px;text-transform:uppercase;letter-spacing:0.1em}
+  footer a{color:var(--white);text-decoration:none;opacity:0.85}
+  footer a:hover{opacity:1}
+</style>
+</head>
+<body data-page="corpora">
+
+<div class="wrap">
+  <div class="meta">
+    <div><span class="dot"></span>Arktos AI Lab · The Netherlands · Established 2025</div>
+    <div>Text Corpora Index · v0.3</div>
+  </div>
+
+  <nav class="primary">
+    <a class="brand" href="./index.html">
+      <img src="assets/arktos-bear.png" alt="Arktos AI Lab" />
+      <div class="name">Arktos <em>AI Lab</em></div>
+    </a>
+    <ul>
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#papers">Publications</a></li>
+      <li><a href="corpora.html" class="active">Corpora</a></li>
+      <li><a href="talitha.html">Talitha</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="mast">
+    <div class="num">§ Text Corpora Index</div>
+    <div>
+      <div class="kicker">African-language NLP · Text · License provenance</div>
+      <h1>The <em>Text Corpora</em> Index.</h1>
+      <p>A public, citable index of the <strong>text</strong> corpus families reviewed for <em>Open but Unvetted</em> (Proceedings of RAIL 2026 at LREC 2026). This index covers written-language resources only. Speech, audio, image, and video datasets are out of scope here, even where a listed project also ships those modalities. Each row is a license-tier assignment, verified against the primary license page rather than the dataset card. Intended as a working artifact for NLP practitioners building <strong>text</strong> datasets in African-language contexts.</p>
+    </div>
+  </header>
+
+  <div class="embargo">
+    <div class="k">Subset</div>
+    <p>This index is a subset of the tier assignments in the published paper. The full machine-readable release, with citations and the compatibility matrix, is in preparation. Where this page and the paper differ, the paper is authoritative. Corrections and additions are welcome via LinkedIn.</p>
+  </div>
+
+  <!-- LEGEND -->
+  <section class="legend">
+    <h2>Tier Legend</h2>
+    <div>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <span class="tier-chip t1">T1</span>
+          <div>
+            <div class="label">Public domain / CC0</div>
+            <div class="hint">No rights reserved. Freely combinable.</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="tier-chip t2">T2</span>
+          <div>
+            <div class="label">Permissive (CC-BY, MIT, Apache)</div>
+            <div class="hint">Attribution-only. Commercial and derivative use allowed.</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="tier-chip t3">T3</span>
+          <div>
+            <div class="label">Share-alike (CC-BY-SA)</div>
+            <div class="hint">Propagates. Derivatives must be released under the same license.</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="tier-chip t4a">T4a</span>
+          <div>
+            <div class="label">NonCommercial (NC)</div>
+            <div class="hint">Research only. Incompatible with share-alike chains.</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="tier-chip t4b">T4b</span>
+          <div>
+            <div class="label">No-Derivs (ND)</div>
+            <div class="hint">No derivative works permitted. Blocks annotation and fine-tuning datasets.</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="tier-chip t5">T5</span>
+          <div>
+            <div class="label">Prohibited / ToS violation</div>
+            <div class="hint">Not permissible to redistribute. Retain only as reference.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section class="controls" aria-label="Filters">
+    <div class="search">
+      <input id="q" type="text" placeholder="Search corpora, languages, licenses…" aria-label="Search" />
+    </div>
+    <div class="filters" id="filters">
+      <button type="button" data-filter="all" class="on">All</button>
+      <button type="button" data-filter="t1">T1</button>
+      <button type="button" data-filter="t2">T2</button>
+      <button type="button" data-filter="t3">T3</button>
+      <button type="button" data-filter="t4a">T4a</button>
+      <button type="button" data-filter="t4b">T4b</button>
+      <button type="button" data-filter="t5">T5</button>
+    </div>
+    <div class="count" id="count">24 entries</div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="table-wrap">
+    <table class="corpora" id="tbl">
+      <thead>
+        <tr>
+          <th>Corpus</th>
+          <th class="hide-sm">Languages</th>
+          <th>Declared License</th>
+          <th>Tier</th>
+          <th class="hide-sm">Notes</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-tier="t3" data-searchable="wikipedia (african language editions) encyclopedic text 80+ af langs cc-by-sa 4.0 share-alike propagates through any derivative. cannot be combined with nc sources in a single released dataset. ">
+      <td class="name">Wikipedia (African language editions)<span class="kind">Encyclopedic text</span></td>
+      <td class="langs hide-sm">80+ AF langs</td>
+      <td class="lic">CC-BY-SA 4.0</td>
+      <td class="tier"><span class="tier-chip t3">T3</span></td>
+      <td class="notes hide-sm">Share-alike propagates through any derivative. Cannot be combined with NC sources in a single released dataset.</td>
+      <td class="link"><a href="https://dumps.wikimedia.org" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t3" data-searchable="flores-200 parallel benchmark 200 (incl. 40+ af) cc-by-sa 4.0 permissive for benchmarking; viral for derivatives. widely treated as permissive in practice. ">
+      <td class="name">FLORES-200<span class="kind">Parallel benchmark</span></td>
+      <td class="langs hide-sm">200 (incl. 40+ AF)</td>
+      <td class="lic">CC-BY-SA 4.0</td>
+      <td class="tier"><span class="tier-chip t3">T3</span></td>
+      <td class="notes hide-sm">Permissive for benchmarking; viral for derivatives. Widely treated as permissive in practice.</td>
+      <td class="link"><a href="https://github.com/facebookresearch/flores" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t1" data-searchable="common voice speech 100+ (incl. kinyarwanda, luganda, hausa) cc0 public-domain dedication with community consent. one of the cleanest sources for african-language asr. ">
+      <td class="name">Common Voice<span class="kind">Speech</span></td>
+      <td class="langs hide-sm">100+ (incl. Kinyarwanda, Luganda, Hausa)</td>
+      <td class="lic">CC0</td>
+      <td class="tier"><span class="tier-chip t1">T1</span></td>
+      <td class="notes hide-sm">Public-domain dedication with community consent. One of the cleanest sources for African-language ASR.</td>
+      <td class="link"><a href="https://commonvoice.mozilla.org" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t1" data-searchable="oscar (shuffled) web crawl 150+ cc0 on the cleaned corpus corpus license is cc0; individual source documents may carry their own rights. downstream risk is upstream content, not the corpus itself. ">
+      <td class="name">OSCAR (shuffled)<span class="kind">Web crawl</span></td>
+      <td class="langs hide-sm">150+</td>
+      <td class="lic">CC0 on the cleaned corpus</td>
+      <td class="tier"><span class="tier-chip t1">T1</span></td>
+      <td class="notes hide-sm">Corpus license is CC0; individual source documents may carry their own rights. Downstream risk is upstream content, not the corpus itself.</td>
+      <td class="link"><a href="https://oscar-project.org" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t2" data-searchable="mc4 (african subsets) web crawl 100+ af langs odc-by 1.0 (corpus) open data license with attribution. source web pages retain their own rights; corpus redistribution is permitted. ">
+      <td class="name">mC4 (African subsets)<span class="kind">Web crawl</span></td>
+      <td class="langs hide-sm">100+ AF langs</td>
+      <td class="lic">ODC-BY 1.0 (corpus)</td>
+      <td class="tier"><span class="tier-chip t2">T2</span></td>
+      <td class="notes hide-sm">Open data license with attribution. Source web pages retain their own rights; corpus redistribution is permitted.</td>
+      <td class="link"><a href="https://www.tensorflow.org/datasets/catalog/c4" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t2" data-searchable="masakhaner / masakhaner 2.0 ner annotations 20 af langs cc-by 4.0 community-led, well-documented. a model for license clarity in african nlp. ">
+      <td class="name">MasakhaNER / MasakhaNER 2.0<span class="kind">NER annotations</span></td>
+      <td class="langs hide-sm">20 AF langs</td>
+      <td class="lic">CC-BY 4.0</td>
+      <td class="tier"><span class="tier-chip t2">T2</span></td>
+      <td class="notes hide-sm">Community-led, well-documented. A model for license clarity in African NLP.</td>
+      <td class="link"><a href="https://github.com/masakhane-io/masakhane-ner" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t4a" data-searchable="mafand-mt mt parallel 16 af langs cc-by-nc 4.0 non-commercial restriction propagates to any dataset built from it. cannot be combined with cc-by-sa sources. ">
+      <td class="name">MAFAND-MT<span class="kind">MT parallel</span></td>
+      <td class="langs hide-sm">16 AF langs</td>
+      <td class="lic">CC-BY-NC 4.0</td>
+      <td class="tier"><span class="tier-chip t4a">T4a</span></td>
+      <td class="notes hide-sm">Non-commercial restriction propagates to any dataset built from it. Cannot be combined with CC-BY-SA sources.</td>
+      <td class="link"><a href="https://github.com/masakhane-io/lafand-mt" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t3" data-searchable="nllb seed / mined mt parallel 200+ (mined) cc-by-sa 4.0 (seed) / cc-by-nc 4.0 (mined) seed and mined partitions have different licenses; they cannot be combined without care. the mined partition is t4a. ">
+      <td class="name">NLLB Seed / Mined<span class="kind">MT parallel</span></td>
+      <td class="langs hide-sm">200+ (mined)</td>
+      <td class="lic">CC-BY-SA 4.0 (seed) / CC-BY-NC 4.0 (mined)</td>
+      <td class="tier"><span class="tier-chip t3">T3</span></td>
+      <td class="notes hide-sm">Seed and mined partitions have different licenses; they cannot be combined without care. The mined partition is T4a.</td>
+      <td class="link"><a href="https://github.com/facebookresearch/fairseq/tree/nllb" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t5" data-searchable="jw300 parallel (religious) 300+ incl. many af formerly released as &quot;open&quot; case a (paper). opus removed the corpus following a cipit nairobi audit confirming the violation. downstream models may still carry contaminated provenance. in breach of source terms of service">
+      <td class="name">JW300<span class="kind">Parallel (religious)</span></td>
+      <td class="langs hide-sm">300+ incl. many AF</td>
+      <td class="lic">Formerly released as "open"<span class="mis">⚠ In breach of source Terms of Service</span></td>
+      <td class="tier"><span class="tier-chip t5">T5</span></td>
+      <td class="notes hide-sm">Case A (paper). OPUS removed the corpus following a CIPIT Nairobi audit confirming the violation. Downstream models may still carry contaminated provenance.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t4b" data-searchable="waxal speech lingala, hausa, igbo, yoruba, makerere-sourced, +others declared: cc-by 4.0 case b (paper). per-provider terms include share-alike and non-commercial clauses not reflected in the uniform cc-by label. contradicts per-provider terms">
+      <td class="name">WAXAL<span class="kind">Speech</span></td>
+      <td class="langs hide-sm">Lingala, Hausa, Igbo, Yoruba, Makerere-sourced, +others</td>
+      <td class="lic">Declared: CC-BY 4.0<span class="mis">⚠ Contradicts per-provider terms</span></td>
+      <td class="tier"><span class="tier-chip t4b">T4b</span></td>
+      <td class="notes hide-sm">Case B (paper). Per-provider terms include share-alike and non-commercial clauses not reflected in the uniform CC-BY label.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t4b" data-searchable="tanzil quran translations 40+ (incl. af) declared: cc-by 3.0 case c (paper). hidden noderivs clause on the tanzil license page, not represented in aggregator metadata. license page explicitly prohibits modification">
+      <td class="name">Tanzil<span class="kind">Quran translations</span></td>
+      <td class="langs hide-sm">40+ (incl. AF)</td>
+      <td class="lic">Declared: CC-BY 3.0<span class="mis">⚠ License page explicitly prohibits modification</span></td>
+      <td class="tier"><span class="tier-chip t4b">T4b</span></td>
+      <td class="notes hide-sm">Case C (paper). Hidden NoDerivs clause on the Tanzil license page, not represented in aggregator metadata.</td>
+      <td class="link"><a href="https://tanzil.net/trans/" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t5" data-searchable="congolese radio corpus speech (youtube-referenced) lingala, kituba, swahili non-redistributable (link-only) case d (paper). 405 youtube ids referenced; 402 no longer accessible in a feb 2026 audit. reproducible portion ~14.4 hours versus hundreds originally claimed. ">
+      <td class="name">Congolese Radio Corpus<span class="kind">Speech (YouTube-referenced)</span></td>
+      <td class="langs hide-sm">Lingala, Kituba, Swahili</td>
+      <td class="lic">Non-redistributable (link-only)</td>
+      <td class="tier"><span class="tier-chip t5">T5</span></td>
+      <td class="notes hide-sm">Case D (paper). 405 YouTube IDs referenced; 402 no longer accessible in a Feb 2026 audit. Reproducible portion ~14.4 hours versus hundreds originally claimed.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t4a" data-searchable="feriji (27group) zarma parallel zarma (dje) cc-by-nc 4.0 a principal zarma resource. nc clause blocks combination with wikipedia (t3) in any published dataset. ">
+      <td class="name">Feriji (27Group)<span class="kind">Zarma parallel</span></td>
+      <td class="langs hide-sm">Zarma (dje)</td>
+      <td class="lic">CC-BY-NC 4.0</td>
+      <td class="tier"><span class="tier-chip t4a">T4a</span></td>
+      <td class="notes hide-sm">A principal Zarma resource. NC clause blocks combination with Wikipedia (T3) in any published dataset.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t5" data-searchable="opus · opensubtitles parallel subtitles 60+ subtitle-source terms subtitle sources typically prohibit redistribution. commonly used in nlp; rarely cited with its actual license status. ">
+      <td class="name">OPUS · OpenSubtitles<span class="kind">Parallel subtitles</span></td>
+      <td class="langs hide-sm">60+</td>
+      <td class="lic">Subtitle-source terms</td>
+      <td class="tier"><span class="tier-chip t5">T5</span></td>
+      <td class="notes hide-sm">Subtitle sources typically prohibit redistribution. Commonly used in NLP; rarely cited with its actual license status.</td>
+      <td class="link"><a href="https://opus.nlpl.eu" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t2" data-searchable="opus · gnome / kde / ubuntu localization parallel 100+ project-specific (often gpl / lgpl / cc-by) often aggregated as &quot;open&quot;; in practice each project's terms must be honored. attribution and upstream notice required. ">
+      <td class="name">OPUS · GNOME / KDE / Ubuntu<span class="kind">Localization parallel</span></td>
+      <td class="langs hide-sm">100+</td>
+      <td class="lic">Project-specific (often GPL / LGPL / CC-BY)</td>
+      <td class="tier"><span class="tier-chip t2">T2</span></td>
+      <td class="notes hide-sm">Often aggregated as "open"; in practice each project's terms must be honored. Attribution and upstream notice required.</td>
+      <td class="link"><a href="https://opus.nlpl.eu" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t4b" data-searchable="ted talks (wit3) parallel transcripts 100+ cc-by-nc-nd 4.0 noderivs clause makes wit3 unusable as a source for published annotation datasets or fine-tuning sets. ">
+      <td class="name">TED Talks (WIT3)<span class="kind">Parallel transcripts</span></td>
+      <td class="langs hide-sm">100+</td>
+      <td class="lic">CC-BY-NC-ND 4.0</td>
+      <td class="tier"><span class="tier-chip t4b">T4b</span></td>
+      <td class="notes hide-sm">NoDerivs clause makes WIT3 unusable as a source for published annotation datasets or fine-tuning sets.</td>
+      <td class="link"><a href="https://wit3.fbk.eu" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t1" data-searchable="europarl parallel (eu proceedings) 21 eu no claim / public-interest reuse commonly treated as public-domain-equivalent. not african-language, included for methodology comparison. ">
+      <td class="name">Europarl<span class="kind">Parallel (EU proceedings)</span></td>
+      <td class="langs hide-sm">21 EU</td>
+      <td class="lic">No claim / public-interest reuse</td>
+      <td class="tier"><span class="tier-chip t1">T1</span></td>
+      <td class="notes hide-sm">Commonly treated as public-domain-equivalent. Not African-language, included for methodology comparison.</td>
+      <td class="link"><a href="https://www.statmt.org/europarl/" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t4a" data-searchable="wolof · lafand / ugnet mt parallel wolof (wol) cc-by-nc 4.0 same nc propagation as mafand. practitioners often overlook the downstream effect on dataset licensing. ">
+      <td class="name">Wolof · Lafand / UGnet<span class="kind">MT parallel</span></td>
+      <td class="langs hide-sm">Wolof (wol)</td>
+      <td class="lic">CC-BY-NC 4.0</td>
+      <td class="tier"><span class="tier-chip t4a">T4a</span></td>
+      <td class="notes hide-sm">Same NC propagation as MAFAND. Practitioners often overlook the downstream effect on dataset licensing.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t4a" data-searchable="alffa (african llw) speech swahili, amharic, wolof, hausa mixed per-language per-language terms vary; several partitions are nc. aggregate use requires per-partition review. ">
+      <td class="name">ALFFA (African LLW)<span class="kind">Speech</span></td>
+      <td class="langs hide-sm">Swahili, Amharic, Wolof, Hausa</td>
+      <td class="lic">Mixed per-language</td>
+      <td class="tier"><span class="tier-chip t4a">T4a</span></td>
+      <td class="notes hide-sm">Per-language terms vary; several partitions are NC. Aggregate use requires per-partition review.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t2" data-searchable="lelapa ai inkuba / vulavula mt / speech zulu, xhosa, sotho, swahili, etc. cc-by 4.0 (parts) / proprietary terms (parts) open partitions are cleanly licensed; proprietary partitions require permission. strong documentation overall. ">
+      <td class="name">Lelapa AI Inkuba / Vulavula<span class="kind">MT / speech</span></td>
+      <td class="langs hide-sm">Zulu, Xhosa, Sotho, Swahili, etc.</td>
+      <td class="lic">CC-BY 4.0 (parts) / Proprietary terms (parts)</td>
+      <td class="tier"><span class="tier-chip t2">T2</span></td>
+      <td class="notes hide-sm">Open partitions are cleanly licensed; proprietary partitions require permission. Strong documentation overall.</td>
+      <td class="link"><a href="https://lelapa.ai" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t3" data-searchable="kongo wikipedia (kgwiki) encyclopedic text actually kituba (ktu/mkw) cc-by-sa 4.0 notable finding: content under the iso code kg is in fact written in kituba. 1,200+ articles frequently misattributed by researchers. ">
+      <td class="name">Kongo Wikipedia (kgwiki)<span class="kind">Encyclopedic text</span></td>
+      <td class="langs hide-sm">Actually Kituba (ktu/mkw)</td>
+      <td class="lic">CC-BY-SA 4.0</td>
+      <td class="tier"><span class="tier-chip t3">T3</span></td>
+      <td class="notes hide-sm">Notable finding: content under the ISO code kg is in fact written in Kituba. 1,200+ articles frequently misattributed by researchers.</td>
+      <td class="link"><a href="https://kg.wikipedia.org" target="_blank" rel="noopener">visit ↗</a></td>
+    </tr>
+<tr data-tier="t5" data-searchable="openai whisper training data (african languages) speech (unpublished) undisclosed not released underlying training data not available for audit. included for completeness of the provenance landscape; not a usable source. ">
+      <td class="name">OpenAI Whisper training data (African languages)<span class="kind">Speech (unpublished)</span></td>
+      <td class="langs hide-sm">Undisclosed</td>
+      <td class="lic">Not released</td>
+      <td class="tier"><span class="tier-chip t5">T5</span></td>
+      <td class="notes hide-sm">Underlying training data not available for audit. Included for completeness of the provenance landscape; not a usable source.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t4b" data-searchable="quran translations (non-tanzil mirrors) religious parallel 40+ various; often nd by convention mirrors routinely carry implicit noderivs conventions even when cc labels suggest otherwise. verify against primary source. ">
+      <td class="name">Quran translations (non-Tanzil mirrors)<span class="kind">Religious parallel</span></td>
+      <td class="langs hide-sm">40+</td>
+      <td class="lic">Various; often ND by convention</td>
+      <td class="tier"><span class="tier-chip t4b">T4b</span></td>
+      <td class="notes hide-sm">Mirrors routinely carry implicit NoDerivs conventions even when CC labels suggest otherwise. Verify against primary source.</td>
+      <td class="link">—</td>
+    </tr>
+<tr data-tier="t5" data-searchable="isizulu / isixhosa news scrapes (ad-hoc) web scrapes zulu, xhosa publisher tos (generally restrictive) a recurring pattern: news scrapes treated as &quot;fair use&quot; for research, but redistribution terms are rarely actually compatible. ">
+      <td class="name">IsiZulu / IsiXhosa news scrapes (ad-hoc)<span class="kind">Web scrapes</span></td>
+      <td class="langs hide-sm">Zulu, Xhosa</td>
+      <td class="lic">Publisher ToS (generally restrictive)</td>
+      <td class="tier"><span class="tier-chip t5">T5</span></td>
+      <td class="notes hide-sm">A recurring pattern: news scrapes treated as "fair use" for research, but redistribution terms are rarely actually compatible.</td>
+      <td class="link">—</td>
+    </tr>
+      </tbody>
+    </table>
+
+    <div class="summary" id="summary">
+      <div><div class="lbl"><i style="background:var(--t1)"></i>T1 Public</div><div class="num" data-k="t1">3</div><div class="sub">fully open</div></div>
+      <div><div class="lbl"><i style="background:var(--t2)"></i>T2 Permissive</div><div class="num" data-k="t2">4</div><div class="sub">attribution only</div></div>
+      <div><div class="lbl"><i style="background:var(--t3)"></i>T3 Share-alike</div><div class="num" data-k="t3">4</div><div class="sub">viral license</div></div>
+      <div><div class="lbl"><i style="background:var(--t4a)"></i>T4a NC</div><div class="num" data-k="t4a">4</div><div class="sub">non-commercial</div></div>
+      <div><div class="lbl"><i style="background:var(--t4b)"></i>T4b ND</div><div class="num" data-k="t4b">4</div><div class="sub">no derivs</div></div>
+      <div><div class="lbl"><i style="background:var(--t5)"></i>T5 Prohibited</div><div class="num" data-k="t5">5</div><div class="sub">unusable</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-grid">
+      <div>
+        <h2>A citable, <em>evolving</em> resource.</h2>
+        <p>The index is maintained alongside the <em>Open but Unvetted</em> paper. Each entry reflects a review against a primary license page. If you spot a misclassification, have a source the paper should include, or want to co-author on a follow-up, get in touch.</p>
+        <p>The full dataset is in preparation as a CSV with SPDX identifiers, a JSON-schema'd tier taxonomy, and a Markdown version of the due-diligence checklist.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">
+          <span>Contribute via LinkedIn</span>
+          <span>↗</span>
+        </a>
+        <a class="btn" href="research.html">
+          <span>Read the paper summary</span>
+          <span>→</span>
+        </a>
+        <a class="btn" href="index.html">
+          <span>Back to Arktos</span>
+          <span>←</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Arktos AI Lab · Ernst van Gassen · The Netherlands</div>
+    <div><a href="cv.html">CV</a> · <a href="corpora.html">Corpora</a> · <a href="https://www.linkedin.com/in/ernst-van-gassen-9196a7b5/" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+  // ---- DATA ----
+  // Each row: name, kind, langs, lic, tier, mislabel, notes, source (url or null)
+  const rows = [
+    { name:"Wikipedia (African language editions)", kind:"Encyclopedic text", langs:"80+ AF langs", lic:"CC-BY-SA 4.0", tier:"t3", notes:"Share-alike propagates through any derivative. Cannot be combined with NC sources in a single released dataset.", src:"https://dumps.wikimedia.org" },
+    { name:"FLORES-200", kind:"Parallel benchmark", langs:"200 (incl. 40+ AF)", lic:"CC-BY-SA 4.0", tier:"t3", notes:"Permissive for benchmarking; viral for derivatives. Widely treated as permissive in practice.", src:"https://github.com/facebookresearch/flores" },
+    { name:"Common Voice", kind:"Speech", langs:"100+ (incl. Kinyarwanda, Luganda, Hausa)", lic:"CC0", tier:"t1", notes:"Public-domain dedication with community consent. One of the cleanest sources for African-language ASR.", src:"https://commonvoice.mozilla.org" },
+    { name:"OSCAR (shuffled)", kind:"Web crawl", langs:"150+", lic:"CC0 on the cleaned corpus", tier:"t1", notes:"Corpus license is CC0; individual source documents may carry their own rights. Downstream risk is upstream content, not the corpus itself.", src:"https://oscar-project.org" },
+    { name:"mC4 (African subsets)", kind:"Web crawl", langs:"100+ AF langs", lic:"ODC-BY 1.0 (corpus)", tier:"t2", notes:"Open data license with attribution. Source web pages retain their own rights; corpus redistribution is permitted.", src:"https://www.tensorflow.org/datasets/catalog/c4" },
+    { name:"MasakhaNER / MasakhaNER 2.0", kind:"NER annotations", langs:"20 AF langs", lic:"CC-BY 4.0", tier:"t2", notes:"Community-led, well-documented. A model for license clarity in African NLP.", src:"https://github.com/masakhane-io/masakhane-ner" },
+    { name:"MAFAND-MT", kind:"MT parallel", langs:"16 AF langs", lic:"CC-BY-NC 4.0", tier:"t4a", notes:"Non-commercial restriction propagates to any dataset built from it. Cannot be combined with CC-BY-SA sources.", src:"https://github.com/masakhane-io/lafand-mt" },
+    { name:"NLLB Seed / Mined", kind:"MT parallel", langs:"200+ (mined)", lic:"CC-BY-SA 4.0 (seed) / CC-BY-NC 4.0 (mined)", tier:"t3", notes:"Seed and mined partitions have different licenses; they cannot be combined without care. The mined partition is T4a.", src:"https://github.com/facebookresearch/fairseq/tree/nllb" },
+    { name:"JW300", kind:"Parallel (religious)", langs:"300+ incl. many AF", lic:"Formerly released as \"open\"", mislabel:"In breach of source Terms of Service", tier:"t5", notes:"Case A (paper). OPUS removed the corpus following a CIPIT Nairobi audit confirming the violation. Downstream models may still carry contaminated provenance.", src:null },
+    { name:"WAXAL", kind:"Speech", langs:"Lingala, Hausa, Igbo, Yoruba, Makerere-sourced, +others", lic:"Declared: CC-BY 4.0", mislabel:"Contradicts per-provider terms", tier:"t4b", notes:"Case B (paper). Per-provider terms include share-alike and non-commercial clauses not reflected in the uniform CC-BY label.", src:null },
+    { name:"Tanzil", kind:"Quran translations", langs:"40+ (incl. AF)", lic:"Declared: CC-BY 3.0", mislabel:"License page explicitly prohibits modification", tier:"t4b", notes:"Case C (paper). Hidden NoDerivs clause on the Tanzil license page, not represented in aggregator metadata.", src:"https://tanzil.net/trans/" },
+    { name:"Congolese Radio Corpus", kind:"Speech (YouTube-referenced)", langs:"Lingala, Kituba, Swahili", lic:"Non-redistributable (link-only)", tier:"t5", notes:"Case D (paper). 405 YouTube IDs referenced; 402 no longer accessible in a Feb 2026 audit. Reproducible portion ~14.4 hours versus hundreds originally claimed.", src:null },
+    { name:"Feriji (27Group)", kind:"Zarma parallel", langs:"Zarma (dje)", lic:"CC-BY-NC 4.0", tier:"t4a", notes:"A principal Zarma resource. NC clause blocks combination with Wikipedia (T3) in any published dataset.", src:null },
+    { name:"OPUS · OpenSubtitles", kind:"Parallel subtitles", langs:"60+", lic:"Subtitle-source terms", tier:"t5", notes:"Subtitle sources typically prohibit redistribution. Commonly used in NLP; rarely cited with its actual license status.", src:"https://opus.nlpl.eu" },
+    { name:"OPUS · GNOME / KDE / Ubuntu", kind:"Localization parallel", langs:"100+", lic:"Project-specific (often GPL / LGPL / CC-BY)", tier:"t2", notes:"Often aggregated as \"open\"; in practice each project's terms must be honored. Attribution and upstream notice required.", src:"https://opus.nlpl.eu" },
+    { name:"TED Talks (WIT3)", kind:"Parallel transcripts", langs:"100+", lic:"CC-BY-NC-ND 4.0", tier:"t4b", notes:"NoDerivs clause makes WIT3 unusable as a source for published annotation datasets or fine-tuning sets.", src:"https://wit3.fbk.eu" },
+    { name:"Europarl", kind:"Parallel (EU proceedings)", langs:"21 EU", lic:"No claim / public-interest reuse", tier:"t1", notes:"Commonly treated as public-domain-equivalent. Not African-language, included for methodology comparison.", src:"https://www.statmt.org/europarl/" },
+    { name:"Wolof · Lafand / UGnet", kind:"MT parallel", langs:"Wolof (wol)", lic:"CC-BY-NC 4.0", tier:"t4a", notes:"Same NC propagation as MAFAND. Practitioners often overlook the downstream effect on dataset licensing.", src:null },
+    { name:"ALFFA (African LLW)", kind:"Speech", langs:"Swahili, Amharic, Wolof, Hausa", lic:"Mixed per-language", tier:"t4a", notes:"Per-language terms vary; several partitions are NC. Aggregate use requires per-partition review.", src:null },
+    { name:"Lelapa AI Inkuba / Vulavula", kind:"MT / speech", langs:"Zulu, Xhosa, Sotho, Swahili, etc.", lic:"CC-BY 4.0 (parts) / Proprietary terms (parts)", tier:"t2", notes:"Open partitions are cleanly licensed; proprietary partitions require permission. Strong documentation overall.", src:"https://lelapa.ai" },
+    { name:"Kongo Wikipedia (kgwiki)", kind:"Encyclopedic text", langs:"Actually Kituba (ktu/mkw)", lic:"CC-BY-SA 4.0", tier:"t3", notes:"Notable finding: content under the ISO code kg is in fact written in Kituba. 1,200+ articles frequently misattributed by researchers.", src:"https://kg.wikipedia.org" },
+    { name:"OpenAI Whisper training data (African languages)", kind:"Speech (unpublished)", langs:"Undisclosed", lic:"Not released", tier:"t5", notes:"Underlying training data not available for audit. Included for completeness of the provenance landscape; not a usable source.", src:null },
+    { name:"Quran translations (non-Tanzil mirrors)", kind:"Religious parallel", langs:"40+", lic:"Various; often ND by convention", tier:"t4b", notes:"Mirrors routinely carry implicit NoDerivs conventions even when CC labels suggest otherwise. Verify against primary source.", src:null },
+    { name:"IsiZulu / IsiXhosa news scrapes (ad-hoc)", kind:"Web scrapes", langs:"Zulu, Xhosa", lic:"Publisher ToS (generally restrictive)", tier:"t5", notes:"A recurring pattern: news scrapes treated as \"fair use\" for research, but redistribution terms are rarely actually compatible.", src:null }
+  ];
+
+  // ---- RENDER ----
+  const tbody = document.querySelector('#tbl tbody');
+  const tierLabel = {t1:'T1', t2:'T2', t3:'T3', t4a:'T4a', t4b:'T4b', t5:'T5'};
+  function renderRow(r){
+    const tr = document.createElement('tr');
+    tr.setAttribute('data-tier', r.tier);
+    tr.setAttribute('data-searchable', [r.name, r.kind, r.langs, r.lic, r.notes, r.mislabel||''].join(' ').toLowerCase());
+    tr.innerHTML = `
+      <td class="name">${r.name}<span class="kind">${r.kind}</span></td>
+      <td class="langs hide-sm">${r.langs}</td>
+      <td class="lic">${r.lic}${r.mislabel ? `<span class="mis">⚠ ${r.mislabel}</span>` : ''}</td>
+      <td class="tier"><span class="tier-chip ${r.tier}">${tierLabel[r.tier]}</span></td>
+      <td class="notes hide-sm">${r.notes}</td>
+      <td class="link">${r.src ? `<a href="${r.src}" target="_blank" rel="noopener">visit ↗</a>` : '—'}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+  if(!tbody.children.length) rows.forEach(renderRow);
+
+  // summary counts
+  const counts = rows.reduce((a,r)=>{ a[r.tier]=(a[r.tier]||0)+1; return a; }, {});
+  document.querySelectorAll('#summary [data-k]').forEach(n => {
+    const k = n.getAttribute('data-k');
+    n.textContent = counts[k] || 0;
+  });
+  document.getElementById('count').textContent = rows.length + ' entries';
+
+  // ---- FILTER + SEARCH ----
+  let activeFilter = 'all';
+  let q = '';
+  function apply(){
+    let shown = 0;
+    tbody.querySelectorAll('tr').forEach(tr => {
+      const tier = tr.getAttribute('data-tier');
+      const hay = tr.getAttribute('data-searchable');
+      const tierOk = activeFilter === 'all' || activeFilter === tier;
+      const qOk = !q || hay.indexOf(q) !== -1;
+      const show = tierOk && qOk;
+      tr.classList.toggle('hidden', !show);
+      if(show) shown++;
+    });
+    document.getElementById('count').textContent = shown + ' / ' + rows.length + ' entries';
+  }
+
+  document.querySelectorAll('#filters button').forEach(b => {
+    b.addEventListener('click', () => {
+      activeFilter = b.getAttribute('data-filter');
+      document.querySelectorAll('#filters button').forEach(x => x.classList.toggle('on', x === b));
+      apply();
+    });
+  });
+  document.getElementById('q').addEventListener('input', (e) => {
+    q = e.target.value.trim().toLowerCase();
+    apply();
+  });
+</script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>
